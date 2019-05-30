@@ -230,9 +230,9 @@ function shallowClearAndCopy(src, dst) {
  *   It is important to realize that invoking a $resource object method immediately returns an
  *   empty reference (object or array depending on `isArray`). Once the data is returned from the
  *   server the existing reference is populated with the actual data. This is a useful trick since
- *   usually the resource is assigned to a model which is then rendered by the view. Having an empty
+ *   usually the resource is assigned to a model which is then rendered by the views. Having an empty
  *   object results in no rendering, once the data arrives from the server then the object is
- *   populated with the data and the view automatically re-renders itself showing the new data. This
+ *   populated with the data and the views automatically re-renders itself showing the new data. This
  *   means that in most cases one never has to write a callback function for the action methods.
  *
  *   The action methods on the class object or instance object can be invoked with the following
@@ -257,7 +257,7 @@ function shallowClearAndCopy(src, dst) {
  *
  *     On success, the promise is resolved with the same resource instance or collection object,
  *     updated with data from server. This makes it easy to use in
- *     {@link ngRoute.$routeProvider resolve section of $routeProvider.when()} to defer view
+ *     {@link ngRoute.$routeProvider resolve section of $routeProvider.when()} to defer views
  *     rendering until the resource(s) are loaded.
  *
  *     On failure, the promise is rejected with the {@link ng.$http http response} object, without
