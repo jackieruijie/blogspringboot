@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: blog-web
+  thymeleaf:
+    prefix: classpath:/static/
+
+
+
+
