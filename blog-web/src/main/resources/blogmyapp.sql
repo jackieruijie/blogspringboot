@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 30/05/2019 18:37:30
+ Date: 31/05/2019 18:22:49
 */
 
 SET NAMES utf8mb4;
@@ -84,78 +84,78 @@ INSERT INTO `article` VALUES ('5', '第一篇文章', 2, 1, 1, '这是第一篇�
 -- ----------------------------
 DROP TABLE IF EXISTS `blog_info`;
 CREATE TABLE `blog_info`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `blog_name` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `annoucement` mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_bloginfo`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of blog_info
 -- ----------------------------
-INSERT INTO `blog_info` VALUES (7, 1, '博客名称', '博客描述', '这是我的个人技术博客。欢迎光临！xxx');
-INSERT INTO `blog_info` VALUES (8, 2, '宦传建', '这是我的个人技术博客', '这是我的个人技术博客');
-INSERT INTO `blog_info` VALUES (9, 3, '云风的Blog', '—— 思绪来的快，走的也快。偶尔在这里停留', '近期由于事务繁忙，博客不能及时更新。希望各位读者不要见谅哈');
-INSERT INTO `blog_info` VALUES (12, 4, '专注于Linux x86_64平台的高性能web服务器', '—— 思绪来的快，走的也快。偶尔在这里停留', '专注于Linux x86_64平台的高性能web服务器');
-INSERT INTO `blog_info` VALUES (13, 5, 'chuan的个人博客', '这是我的技术博客', '最近要休假了');
-INSERT INTO `blog_info` VALUES (14, 9, 'test的博客', 'test的博客描述', 'test今天注册了该博客');
-INSERT INTO `blog_info` VALUES (15, 10, 'starlee2008', 'Servlet技术博客', '欢迎来到我的博客，请多多捧场');
-INSERT INTO `blog_info` VALUES (16, 11, 'starlee2008', 'JSP技术博客', '欢迎大家光临');
-INSERT INTO `blog_info` VALUES (17, 15, '博客名称', '博客描述', '这是我的个人技术博客。欢迎光临！xxx');
-INSERT INTO `blog_info` VALUES (18, 15, '博客名称', '博客描述', '这是我的个人技术博客。欢迎光临！xxx');
+INSERT INTO `blog_info` VALUES ('12', 4, '专注于Linux x86_64平台的高性能web服务器', '—— 思绪来的快，走的也快。偶尔在这里停留', '专注于Linux x86_64平台的高性能web服务器');
+INSERT INTO `blog_info` VALUES ('13', 5, 'chuan的个人博客', '这是我的技术博客', '最近要休假了');
+INSERT INTO `blog_info` VALUES ('14', 9, 'test的博客', 'test的博客描述', 'test今天注册了该博客');
+INSERT INTO `blog_info` VALUES ('15', 10, 'starlee2008', 'Servlet技术博客', '欢迎来到我的博客，请多多捧场');
+INSERT INTO `blog_info` VALUES ('16', 11, 'starlee2008', 'JSP技术博客', '欢迎大家光临');
+INSERT INTO `blog_info` VALUES ('17', 15, '博客名称', '博客描述', '这是我的个人技术博客。欢迎光临！xxx');
+INSERT INTO `blog_info` VALUES ('18', 15, '博客名称', '博客描述', '这是我的个人技术博客。欢迎光临！xxx');
+INSERT INTO `blog_info` VALUES ('7', 1, '博客名称', '博客描述', '这是我的个人技术博客。欢迎光临！xxx');
+INSERT INTO `blog_info` VALUES ('8', 2, '宦传建', '这是我的个人技术博客', '这是我的个人技术博客');
+INSERT INTO `blog_info` VALUES ('9', 3, '云风的Blog', '—— 思绪来的快，走的也快。偶尔在这里停留', '近期由于事务繁忙，博客不能及时更新。希望各位读者不要见谅哈');
 
 -- ----------------------------
 -- Table structure for category
 -- ----------------------------
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `category_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `articals` int(11) NOT NULL DEFAULT 0,
   `is_delete` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_category`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES (1, 1, '网络', 123, b'1');
-INSERT INTO `category` VALUES (2, 1, '嵌入式技术', 123, b'1');
-INSERT INTO `category` VALUES (3, 1, 'Nodejs', 213, b'0');
-INSERT INTO `category` VALUES (4, 2, '数据库原理', 213, b'1');
-INSERT INTO `category` VALUES (5, 2, '大数据', 213, b'1');
-INSERT INTO `category` VALUES (6, 2, '微内核', 213, b'1');
-INSERT INTO `category` VALUES (8, 1, '数据库技术', 0, b'0');
-INSERT INTO `category` VALUES (9, 2, '嵌入式', 0, b'0');
-INSERT INTO `category` VALUES (10, 1, 'web socket', 0, b'1');
-INSERT INTO `category` VALUES (11, 2, 'Nginx', 0, b'0');
-INSERT INTO `category` VALUES (12, 2, 'MySQL', 0, b'0');
-INSERT INTO `category` VALUES (13, 5, '无分类', 0, b'0');
-INSERT INTO `category` VALUES (14, 5, 'Nodejs', 0, b'0');
-INSERT INTO `category` VALUES (15, 5, '网络', 0, b'0');
-INSERT INTO `category` VALUES (16, 9, '无分类', 0, b'0');
-INSERT INTO `category` VALUES (17, 10, '无分类', 0, b'0');
-INSERT INTO `category` VALUES (18, 10, 'JSP博客', 0, b'0');
-INSERT INTO `category` VALUES (19, 1, 'JSPServlet技术+', 0, b'0');
-INSERT INTO `category` VALUES (20, 1, 'Springmvc技术', 0, b'1');
-INSERT INTO `category` VALUES (21, 1, 'nodejs技术', 0, b'0');
-INSERT INTO `category` VALUES (22, 1, 'test', 0, b'1');
-INSERT INTO `category` VALUES (23, 11, '无分类', 0, b'0');
-INSERT INTO `category` VALUES (24, 1, 'test', 0, b'0');
-INSERT INTO `category` VALUES (26, 1, '网络技术2', 0, b'0');
-INSERT INTO `category` VALUES (27, 15, '无分类', 1, b'0');
+INSERT INTO `category` VALUES ('1', 1, '网络', 123, b'1');
+INSERT INTO `category` VALUES ('10', 1, 'web socket', 0, b'1');
+INSERT INTO `category` VALUES ('11', 2, 'Nginx', 0, b'0');
+INSERT INTO `category` VALUES ('12', 2, 'MySQL', 0, b'0');
+INSERT INTO `category` VALUES ('13', 5, '无分类', 0, b'0');
+INSERT INTO `category` VALUES ('14', 5, 'Nodejs', 0, b'0');
+INSERT INTO `category` VALUES ('15', 5, '网络', 0, b'0');
+INSERT INTO `category` VALUES ('16', 9, '无分类', 0, b'0');
+INSERT INTO `category` VALUES ('17', 10, '无分类', 0, b'0');
+INSERT INTO `category` VALUES ('18', 10, 'JSP博客', 0, b'0');
+INSERT INTO `category` VALUES ('19', 1, 'JSPServlet技术+', 0, b'0');
+INSERT INTO `category` VALUES ('2', 1, '嵌入式技术', 123, b'1');
+INSERT INTO `category` VALUES ('20', 1, 'Springmvc技术', 0, b'1');
+INSERT INTO `category` VALUES ('21', 1, 'nodejs技术', 0, b'0');
+INSERT INTO `category` VALUES ('22', 1, 'test', 0, b'1');
+INSERT INTO `category` VALUES ('23', 11, '无分类', 0, b'0');
+INSERT INTO `category` VALUES ('24', 1, 'test', 0, b'0');
+INSERT INTO `category` VALUES ('26', 1, '网络技术2', 0, b'0');
+INSERT INTO `category` VALUES ('27', 15, '无分类', 1, b'0');
+INSERT INTO `category` VALUES ('3', 1, 'Nodejs', 213, b'0');
+INSERT INTO `category` VALUES ('4', 2, '数据库原理', 213, b'1');
+INSERT INTO `category` VALUES ('5', 2, '大数据', 213, b'1');
+INSERT INTO `category` VALUES ('6', 2, '微内核', 213, b'1');
+INSERT INTO `category` VALUES ('8', 1, '数据库技术', 0, b'0');
+INSERT INTO `category` VALUES ('9', 2, '嵌入式', 0, b'0');
 
 -- ----------------------------
 -- Table structure for comment
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `artical_id` int(11) NOT NULL DEFAULT 0,
   `content` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
@@ -164,58 +164,58 @@ CREATE TABLE `comment`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_comment1`(`user_id`) USING BTREE,
   INDEX `fk_comment2`(`artical_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES (1, 2, 2, '自己评论自己', '2013-10-25 16:19:51', b'0');
-INSERT INTO `comment` VALUES (2, 2, 3, '我又自己评论自己', '2013-10-25 16:25:22', b'0');
-INSERT INTO `comment` VALUES (3, 1, 1, '我是谁', '2013-10-25 16:27:44', b'1');
-INSERT INTO `comment` VALUES (4, 1, 1, '再评论一次', '2013-10-25 16:28:34', b'1');
-INSERT INTO `comment` VALUES (5, 1, 1, '评论来了，test', '2013-10-25 21:36:32', b'0');
-INSERT INTO `comment` VALUES (6, 1, 1, '继续评论之', '2013-10-25 21:44:26', b'0');
-INSERT INTO `comment` VALUES (7, 1, 1, '继续评论之', '2013-10-25 21:44:30', b'0');
-INSERT INTO `comment` VALUES (8, 2, 4, 'comment test', '2013-10-25 21:50:27', b'1');
-INSERT INTO `comment` VALUES (12, 2, 1, '我和青哥打LOL', '2013-10-26 15:58:16', b'0');
-INSERT INTO `comment` VALUES (14, 2, 11, '评论一发', '2013-10-27 11:05:45', b'1');
-INSERT INTO `comment` VALUES (15, 2, 10, '10月28日评论', '2013-10-28 09:30:14', b'1');
-INSERT INTO `comment` VALUES (16, 1, 12, '歪子来了', '2013-10-28 15:21:04', b'1');
-INSERT INTO `comment` VALUES (17, 2, 10, 'comment  test', '2013-10-28 19:45:19', b'1');
-INSERT INTO `comment` VALUES (18, 1, 10, '评论一发', '2013-10-28 20:46:47', b'0');
-INSERT INTO `comment` VALUES (19, 1, 14, 'etst', '2013-10-29 19:24:29', b'1');
-INSERT INTO `comment` VALUES (20, 5, 17, '司副队长', '2013-10-30 12:25:13', b'1');
-INSERT INTO `comment` VALUES (23, 1, 18, '测试一下', '2014-05-15 11:52:15', b'1');
-INSERT INTO `comment` VALUES (25, 1, 19, '测试一下', '2014-05-18 21:28:22', b'0');
-INSERT INTO `comment` VALUES (26, 1, 18, '测试', '2014-05-21 19:50:55', b'0');
-INSERT INTO `comment` VALUES (27, 1, 26, '测试', '2014-05-21 20:14:25', b'0');
-INSERT INTO `comment` VALUES (28, 1, 25, '测试', '2014-09-16 00:24:00', b'0');
-INSERT INTO `comment` VALUES (29, 1, 29, 'xxxhhhh', '2015-11-17 09:57:25', b'0');
-INSERT INTO `comment` VALUES (30, 1, 1, 'asdfasdfa dfas d', '2017-09-15 09:02:04', b'0');
-INSERT INTO `comment` VALUES (31, 1, 1, '爱的发送到打打地方人体第三方地方地方第三方阿斯蒂芬阿斯蒂芬', '2017-09-15 09:02:16', b'0');
-INSERT INTO `comment` VALUES (32, 1, 1, 'dfsgdf', '2017-09-19 09:20:55', b'0');
+INSERT INTO `comment` VALUES ('1', 2, 2, '自己评论自己', '2013-10-25 16:19:51', b'0');
+INSERT INTO `comment` VALUES ('12', 2, 1, '我和青哥打LOL', '2013-10-26 15:58:16', b'0');
+INSERT INTO `comment` VALUES ('14', 2, 11, '评论一发', '2013-10-27 11:05:45', b'1');
+INSERT INTO `comment` VALUES ('15', 2, 10, '10月28日评论', '2013-10-28 09:30:14', b'1');
+INSERT INTO `comment` VALUES ('16', 1, 12, '歪子来了', '2013-10-28 15:21:04', b'1');
+INSERT INTO `comment` VALUES ('17', 2, 10, 'comment  test', '2013-10-28 19:45:19', b'1');
+INSERT INTO `comment` VALUES ('18', 1, 10, '评论一发', '2013-10-28 20:46:47', b'0');
+INSERT INTO `comment` VALUES ('19', 1, 14, 'etst', '2013-10-29 19:24:29', b'1');
+INSERT INTO `comment` VALUES ('2', 2, 3, '我又自己评论自己', '2013-10-25 16:25:22', b'0');
+INSERT INTO `comment` VALUES ('20', 5, 17, '司副队长', '2013-10-30 12:25:13', b'1');
+INSERT INTO `comment` VALUES ('23', 1, 18, '测试一下', '2014-05-15 11:52:15', b'1');
+INSERT INTO `comment` VALUES ('25', 1, 19, '测试一下', '2014-05-18 21:28:22', b'0');
+INSERT INTO `comment` VALUES ('26', 1, 18, '测试', '2014-05-21 19:50:55', b'0');
+INSERT INTO `comment` VALUES ('27', 1, 26, '测试', '2014-05-21 20:14:25', b'0');
+INSERT INTO `comment` VALUES ('28', 1, 25, '测试', '2014-09-16 00:24:00', b'0');
+INSERT INTO `comment` VALUES ('29', 1, 29, 'xxxhhhh', '2015-11-17 09:57:25', b'0');
+INSERT INTO `comment` VALUES ('3', 1, 1, '我是谁', '2013-10-25 16:27:44', b'1');
+INSERT INTO `comment` VALUES ('30', 1, 1, 'asdfasdfa dfas d', '2017-09-15 09:02:04', b'0');
+INSERT INTO `comment` VALUES ('31', 1, 1, '爱的发送到打打地方人体第三方地方地方第三方阿斯蒂芬阿斯蒂芬', '2017-09-15 09:02:16', b'0');
+INSERT INTO `comment` VALUES ('32', 1, 1, 'dfsgdf', '2017-09-19 09:20:55', b'0');
+INSERT INTO `comment` VALUES ('4', 1, 1, '再评论一次', '2013-10-25 16:28:34', b'1');
+INSERT INTO `comment` VALUES ('5', 1, 1, '评论来了，test', '2013-10-25 21:36:32', b'0');
+INSERT INTO `comment` VALUES ('6', 1, 1, '继续评论之', '2013-10-25 21:44:26', b'0');
+INSERT INTO `comment` VALUES ('7', 1, 1, '继续评论之', '2013-10-25 21:44:30', b'0');
+INSERT INTO `comment` VALUES ('8', 2, 4, 'comment test', '2013-10-25 21:50:27', b'1');
 
 -- ----------------------------
 -- Table structure for counter
 -- ----------------------------
 DROP TABLE IF EXISTS `counter`;
 CREATE TABLE `counter`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `num` bigint(20) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of counter
 -- ----------------------------
-INSERT INTO `counter` VALUES (1, 148);
+INSERT INTO `counter` VALUES ('1', 148);
 
 -- ----------------------------
 -- Table structure for fileinfo
 -- ----------------------------
 DROP TABLE IF EXISTS `fileinfo`;
 CREATE TABLE `fileinfo`  (
-  `id` int(2) NOT NULL,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `filename` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `filepath` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -232,7 +232,7 @@ CREATE TABLE `fileinfo`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `first_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `last_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
@@ -242,62 +242,62 @@ CREATE TABLE `profile`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `index_profile`(`id`) USING BTREE,
   INDEX `fk_profile`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of profile
 -- ----------------------------
-INSERT INTO `profile` VALUES (8, 1, '王', '123', b'0', '18551702658', NULL);
-INSERT INTO `profile` VALUES (9, 2, '吴', '成', b'0', '12345678', NULL);
-INSERT INTO `profile` VALUES (10, 3, '王', '成', b'1', '12345678', NULL);
-INSERT INTO `profile` VALUES (11, 9, 'test_name', 'test_last_name', b'1', '12345', NULL);
+INSERT INTO `profile` VALUES ('10', 3, '王', '成', b'1', '12345678', NULL);
+INSERT INTO `profile` VALUES ('11', 9, 'test_name', 'test_last_name', b'1', '12345', NULL);
+INSERT INTO `profile` VALUES ('8', 1, '王', '123', b'0', '18551702658', NULL);
+INSERT INTO `profile` VALUES ('9', 2, '吴', '成', b'0', '12345678', NULL);
 
 -- ----------------------------
 -- Table structure for sys_admin
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_admin`;
 CREATE TABLE `sys_admin`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `username` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_admin
 -- ----------------------------
-INSERT INTO `sys_admin` VALUES (1, 'admin', 'admin');
-INSERT INTO `sys_admin` VALUES (2, '010210', 'jackie0123');
+INSERT INTO `sys_admin` VALUES ('1', 'admin', 'admin');
+INSERT INTO `sys_admin` VALUES ('2', '010210', 'jackie0123');
 
 -- ----------------------------
 -- Table structure for sys_category
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_category`;
 CREATE TABLE `sys_category`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `category_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `articals` int(11) NULL DEFAULT 0,
   `is_delete` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_category
 -- ----------------------------
-INSERT INTO `sys_category` VALUES (1, 'struts2', 120, b'0');
-INSERT INTO `sys_category` VALUES (2, 'Spring', 345, b'0');
-INSERT INTO `sys_category` VALUES (3, 'linux', 0, b'0');
-INSERT INTO `sys_category` VALUES (4, 'bootstrap', 0, b'0');
-INSERT INTO `sys_category` VALUES (5, 'hibernate', 1, b'0');
-INSERT INTO `sys_category` VALUES (6, 'jquery', 1, b'0');
-INSERT INTO `sys_category` VALUES (7, 'java', 0, b'0');
+INSERT INTO `sys_category` VALUES ('1', 'struts2', 120, b'0');
+INSERT INTO `sys_category` VALUES ('2', 'Spring', 345, b'0');
+INSERT INTO `sys_category` VALUES ('3', 'linux', 0, b'0');
+INSERT INTO `sys_category` VALUES ('4', 'bootstrap', 0, b'0');
+INSERT INTO `sys_category` VALUES ('5', 'hibernate', 1, b'0');
+INSERT INTO `sys_category` VALUES ('6', 'jquery', 1, b'0');
+INSERT INTO `sys_category` VALUES ('7', 'java', 0, b'0');
 
 -- ----------------------------
 -- Table structure for sys_permission
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission`  (
-  `id` bigint(20) NOT NULL,
+  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `parent_id` bigint(20) NULL DEFAULT NULL,
   `res_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `res_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -311,7 +311,7 @@ CREATE TABLE `sys_permission`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role`  (
-  `role_id` bigint(20) NOT NULL,
+  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `role_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`role_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -321,8 +321,8 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_permission`;
 CREATE TABLE `sys_role_permission`  (
-  `role_id` bigint(20) NOT NULL,
-  `permission_id` bigint(20) NOT NULL,
+  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `permission_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`role_id`, `permission_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -331,15 +331,15 @@ CREATE TABLE `sys_role_permission`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
-  `user_id` bigint(20) NOT NULL,
+  `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `full_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `salt` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `is_applied` bit(1) NULL DEFAULT b'0',
-  `is_delete` bit(1) NULL DEFAULT b'0',
+  `is_applied` bit(1) NULL DEFAULT b'0' COMMENT '是否激活',
+  `is_delete` bit(1) NULL DEFAULT b'0' COMMENT '是否删除',
   `column_8` int(11) NULL DEFAULT NULL,
-  `is_profile` bit(1) NULL DEFAULT b'0',
+  `is_profile` bit(1) NULL DEFAULT b'0' COMMENT '个人信息',
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -348,50 +348,10 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role`  (
-  `user_id` bigint(20) NOT NULL,
-  `role_id` bigint(20) NOT NULL,
+  `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`user_id`, `role_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for user
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `email` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `is_applied` bit(1) NOT NULL DEFAULT b'0',
-  `is_delete` bit(1) NOT NULL DEFAULT b'0',
-  `is_profile` bit(1) NOT NULL DEFAULT b'0',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `index_user`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'admin', '1303996779@qq.com', b'1', b'0', b'1');
-INSERT INTO `user` VALUES (2, 'user', 'user', 'admin@chinadota2.com', b'1', b'0', b'1');
-INSERT INTO `user` VALUES (3, 'huanchuanjian', '123', 'chuanjian.huan@wbkit.com', b'1', b'0', b'1');
-INSERT INTO `user` VALUES (4, 'huan', '123', 'xunhua.zhang@wbkit.com', b'1', b'0', b'0');
-INSERT INTO `user` VALUES (5, 'chuan', '123', 'chuan@chuan.com', b'1', b'0', b'0');
-INSERT INTO `user` VALUES (6, 'liulu', '123', 'liulu@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (7, 'hello', '123', 'hello@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (8, 'world', '123', 'world1@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (9, 'test', 'test', 'test@test.com', b'1', b'0', b'1');
-INSERT INTO `user` VALUES (10, 'starlee2008', 'starlee', 'starlee2008@163.com', b'1', b'0', b'0');
-INSERT INTO `user` VALUES (11, 'starlee1999', 'l12345678', 'starlee2008@126.com', b'1', b'1', b'0');
-INSERT INTO `user` VALUES (15, 'admin2008', '123456', 'starlee2008@yeah.com', b'1', b'0', b'0');
-INSERT INTO `user` VALUES (16, 'hellossssss', 'l12345678', 'world@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (17, 'asdfgh', '123456', 'asdfasdfasdfa', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (18, '12345', '123456', '12345@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (19, 'users', 'users', '0esdfsd@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (20, 'u', 'u', 'u', b'0', b'1', b'0');
-INSERT INTO `user` VALUES (21, 'test1', 'test', 'test22222@qq.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (22, 'aaa', 'aaa', 'aaaa@aa.com', b'0', b'0', b'0');
-INSERT INTO `user` VALUES (23, 'dddd', 'dd', 'sss@ss.com', b'0', b'0', b'0');
 
 -- ----------------------------
 -- View structure for artical_data_view
