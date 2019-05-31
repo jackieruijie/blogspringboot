@@ -34,8 +34,8 @@ public class BlogAsdApplication {
         allowedHeaders.add("Origin");
         allowedHeaders.add("Access-Control-Request-Method");
         allowedHeaders.add("Access-Control-Request-Headers");
-//        allowedHeaders.add("Accept");//这里设置要和前端js名字一样
-//        allowedHeaders.add("userToken");//这里设置要和前端js名字一样
+        allowedHeaders.add("Accept");//这里设置要和前端js名字一样
+        allowedHeaders.add("userToken");//这里设置要和前端js名字一样
 
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.addAllowedOrigin("*"); // 1.允许任何域名使用
