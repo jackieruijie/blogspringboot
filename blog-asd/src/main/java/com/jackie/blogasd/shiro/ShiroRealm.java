@@ -1,4 +1,4 @@
-package com.jackie.blogasd.util;
+package com.jackie.blogasd.shiro;
 
 import com.jackie.blogasd.mapper.SysUserMapper;
 import com.jackie.blogasd.model.SysUser;
