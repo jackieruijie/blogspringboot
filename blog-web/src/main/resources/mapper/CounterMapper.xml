@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jackie.blogweb.mapper.CounterMapper">
+    <resultMap id="BaseResultMap" type="com.jackie.blogweb.model.Counter">
+
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="count" jdbcType="INT" property="count"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+
+        id, count
+    </sql>
+
+    <!--    更新网站访问次数-->
+    <update id="updateViewTimes">
+        update counter set count=count+1
+    </update>
+
+
+</mapper>
