@@ -1,6 +1,7 @@
 package com.jackie.blogasd.mapper;
 
 import com.jackie.blogasd.model.Tuser;
+import org.apache.ibatis.annotations.Param;
 
 public interface TuserMapper {
     /**
@@ -50,4 +51,7 @@ public interface TuserMapper {
      * @mbg.generated Tue Jun 18 15:39:52 CST 2019
      */
     int updateByPrimaryKey(Tuser record);
+
+    //通过用户名获取用户信息
+    public Tuser getUserByUserName(@Param("userName")String userName);
 }

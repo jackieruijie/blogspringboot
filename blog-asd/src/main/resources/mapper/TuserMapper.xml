@@ -249,4 +249,9 @@
       is_applied = #{isApplied,jdbcType=INTEGER}
     where tu_id = #{tuId,jdbcType=VARCHAR}
   </update>
+
+  <select id="getUserByUserName" parameterType="java.lang.String" resultType="com.jackie.blogasd.model.Tuser">
+    SELECT * FROM T_USER WHERE USERNAME=#{userName}
+  </select>
+
 </mapper>
