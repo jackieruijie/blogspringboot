@@ -8,7 +8,7 @@
 
     <context id="mysql" targetRuntime="MyBatis3">
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/blogmyapp?useSSL=true"
+                        connectionURL="jdbc:mysql://localhost:3306/blogp?useSSL=true"
                         userId="root"
                         password="admin">
         </jdbcConnection>
@@ -30,11 +30,17 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="sys_permission" domainObjectName="SysPermission" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="t_group" domainObjectName="Tgroup" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false"/>
-        <table tableName="sys_role" domainObjectName="SysRole" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="t_log" domainObjectName="Tlog" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false"/>
-        <table tableName="sys_user" domainObjectName="SysUser" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="t_role" domainObjectName="Trole" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="t_user" domainObjectName="Tuser" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="t_permission" domainObjectName="Tpermission" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="t_organization" domainObjectName="Torganization" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false"/>
        <!-- <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >
             <property name="useActualColumnNames" value="true"/>

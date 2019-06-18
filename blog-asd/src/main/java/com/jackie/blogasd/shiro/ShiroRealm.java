@@ -1,7 +1,5 @@
-package com.jackie.blogasd.util;
+package com.jackie.blogasd.shiro;
 
-import com.jackie.blogasd.mapper.SysUserMapper;
-import com.jackie.blogasd.model.SysUser;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -15,17 +13,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class ShiroRealm extends AuthorizingRealm {
     Logger log= LoggerFactory.getLogger(ShiroRealm.class);
-    @Autowired
-    private SysUserMapper userMapper;
 
 
+    /**
+     * 授权
+     * @param principalCollection
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.info("doGetAuthorizationInfo"+principalCollection.toString());
-        SysUser user=userMapper.selectByPrimaryKey((String) principalCollection.getPrimaryPrincipal());
         return null;
     }
 
+    /**
+     * 密码验证
+     * @param authenticationToken
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token= (UsernamePasswordToken) authenticationToken;
