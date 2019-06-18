@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50726
  Source Host           : localhost:3306
- Source Schema         : blogmyapp
+ Source Schema         : blogp
 
  Target Server Type    : MySQL
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 31/05/2019 18:22:49
+ Date: 18/06/2019 15:42:39
 */
 
 SET NAMES utf8mb4;
@@ -196,21 +196,6 @@ INSERT INTO `comment` VALUES ('7', 1, 1, '继续评论之', '2013-10-25 21:44:30
 INSERT INTO `comment` VALUES ('8', 2, 4, 'comment test', '2013-10-25 21:50:27', b'1');
 
 -- ----------------------------
--- Table structure for counter
--- ----------------------------
-DROP TABLE IF EXISTS `counter`;
-CREATE TABLE `counter`  (
-  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `num` bigint(20) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of counter
--- ----------------------------
-INSERT INTO `counter` VALUES ('1', 148);
-
--- ----------------------------
 -- Table structure for fileinfo
 -- ----------------------------
 DROP TABLE IF EXISTS `fileinfo`;
@@ -253,110 +238,160 @@ INSERT INTO `profile` VALUES ('8', 1, '王', '123', b'0', '18551702658', NULL);
 INSERT INTO `profile` VALUES ('9', 2, '吴', '成', b'0', '12345678', NULL);
 
 -- ----------------------------
--- Table structure for sys_admin
+-- Table structure for t_group
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_admin`;
-CREATE TABLE `sys_admin`  (
-  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `username` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`) USING BTREE
+DROP TABLE IF EXISTS `t_group`;
+CREATE TABLE `t_group`  (
+  `tg_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组ID',
+  `group_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组名称',
+  `parent_tg_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '父组id',
+  `create_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述',
+  PRIMARY KEY (`tg_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of sys_admin
+-- Table structure for t_group_permission_relation
 -- ----------------------------
-INSERT INTO `sys_admin` VALUES ('1', 'admin', 'admin');
-INSERT INTO `sys_admin` VALUES ('2', '010210', 'jackie0123');
-
--- ----------------------------
--- Table structure for sys_category
--- ----------------------------
-DROP TABLE IF EXISTS `sys_category`;
-CREATE TABLE `sys_category`  (
-  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `category_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `articals` int(11) NULL DEFAULT 0,
-  `is_delete` bit(1) NOT NULL DEFAULT b'0',
-  PRIMARY KEY (`id`) USING BTREE
+DROP TABLE IF EXISTS `t_group_permission_relation`;
+CREATE TABLE `t_group_permission_relation`  (
+  `tgp_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标识符',
+  `tg_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组标识',
+  `tp_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限标识',
+  `prem_type` int(5) NOT NULL COMMENT '权限类型：0.可访问，1.可授权',
+  PRIMARY KEY (`tgp_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of sys_category
+-- Table structure for t_group_role_relation
 -- ----------------------------
-INSERT INTO `sys_category` VALUES ('1', 'struts2', 120, b'0');
-INSERT INTO `sys_category` VALUES ('2', 'Spring', 345, b'0');
-INSERT INTO `sys_category` VALUES ('3', 'linux', 0, b'0');
-INSERT INTO `sys_category` VALUES ('4', 'bootstrap', 0, b'0');
-INSERT INTO `sys_category` VALUES ('5', 'hibernate', 1, b'0');
-INSERT INTO `sys_category` VALUES ('6', 'jquery', 1, b'0');
-INSERT INTO `sys_category` VALUES ('7', 'java', 0, b'0');
-
--- ----------------------------
--- Table structure for sys_permission
--- ----------------------------
-DROP TABLE IF EXISTS `sys_permission`;
-CREATE TABLE `sys_permission`  (
-  `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `parent_id` bigint(20) NULL DEFAULT NULL,
-  `res_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `res_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `permission` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
+DROP TABLE IF EXISTS `t_group_role_relation`;
+CREATE TABLE `t_group_role_relation`  (
+  `tgr_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组标识',
+  `tg_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组ID',
+  `tr_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色ID',
+  PRIMARY KEY (`tgr_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for sys_role
+-- Table structure for t_log
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role`;
-CREATE TABLE `sys_role`  (
-  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `role_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`role_id`) USING BTREE
+DROP TABLE IF EXISTS `t_log`;
+CREATE TABLE `t_log`  (
+  `log_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
+  `op_type` int(5) NULL DEFAULT NULL COMMENT '操作类型',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '操作时间',
+  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '操作内容',
+  `tu_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '操作人',
+  `op_ip` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '操作IP',
+  PRIMARY KEY (`log_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for sys_role_permission
+-- Table structure for t_organization
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role_permission`;
-CREATE TABLE `sys_role_permission`  (
-  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `permission_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`role_id`, `permission_id`) USING BTREE
+DROP TABLE IF EXISTS `t_organization`;
+CREATE TABLE `t_organization`  (
+  `to_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
+  `parent_to_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '父ID',
+  `org_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组织名称',
+  `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述',
+  PRIMARY KEY (`to_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for sys_user
+-- Table structure for t_permission
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_user`;
-CREATE TABLE `sys_user`  (
-  `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `full_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `salt` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `is_applied` bit(1) NULL DEFAULT b'0' COMMENT '是否激活',
-  `is_delete` bit(1) NULL DEFAULT b'0' COMMENT '是否删除',
-  `column_8` int(11) NULL DEFAULT NULL,
-  `is_profile` bit(1) NULL DEFAULT b'0' COMMENT '个人信息',
-  PRIMARY KEY (`user_id`) USING BTREE
+DROP TABLE IF EXISTS `t_permission`;
+CREATE TABLE `t_permission`  (
+  `tp_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限标识符',
+  `parent_tp_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '父权限id',
+  `permisssion_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限名称',
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述',
+  PRIMARY KEY (`tp_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for sys_user_role
+-- Table structure for t_role
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_user_role`;
-CREATE TABLE `sys_user_role`  (
-  `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`user_id`, `role_id`) USING BTREE
+DROP TABLE IF EXISTS `t_role`;
+CREATE TABLE `t_role`  (
+  `tr_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色ID',
+  `parent_tr_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '父角色ID',
+  `role_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色名称',
+  `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+  `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色描述',
+  PRIMARY KEY (`tr_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- View structure for artical_data_view
+-- Table structure for t_role_permission_relation
 -- ----------------------------
-DROP VIEW IF EXISTS `artical_data_view`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `artical_data_view` AS select `c`.`id` AS `cid`,`c`.`user_id` AS `cuid`,`c`.`artical_id` AS `artical_id`,`c`.`content` AS `ccontent`,`c`.`time` AS `ctime`,`c`.`is_delete` AS `cdelete`,`u`.`id` AS `uid`,`u`.`username` AS `username`,`u`.`password` AS `password`,`u`.`email` AS `email`,`u`.`is_applied` AS `is_applied`,`u`.`is_delete` AS `udelete`,`u`.`is_profile` AS `is_profile`,`a`.`id` AS `aid`,`a`.`title` AS `title`,`a`.`user_id` AS `user_id`,`a`.`sys_category_id` AS `sys_category_id`,`a`.`category_id` AS `category_id`,`a`.`content` AS `acontent`,`a`.`summary` AS `summary`,`a`.`publish_time` AS `atime`,`a`.`is_top` AS `is_top`,`a`.`is_delete` AS `is_delete` from ((`comment` `c` join `user` `u`) join `article` `a`) where ((`c`.`is_delete` = 0) and (`u`.`id` = `c`.`user_id`) and (`a`.`id` = `c`.`artical_id`));
+DROP TABLE IF EXISTS `t_role_permission_relation`;
+CREATE TABLE `t_role_permission_relation`  (
+  `trp_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标识符',
+  `role_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色ID',
+  `premission_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限ID',
+  `premission_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限类型：0.可授权 1.可访问',
+  PRIMARY KEY (`trp_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for t_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user`;
+CREATE TABLE `t_user`  (
+  `tu_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '记录标识\r\n',
+  `to_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '所属组织',
+  `login_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '登录名',
+  `password` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `real_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户姓名',
+  `mobile` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `create_time` datetime(0) NOT NULL COMMENT '注册时间',
+  `last_login_time` datetime(0) NULL DEFAULT NULL COMMENT '最后一次登陆时间',
+  `login_time` datetime(0) NULL DEFAULT NULL COMMENT '登陆时间',
+  `login_count` bigint(50) NOT NULL COMMENT '登陆次数',
+  `salt` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码加盐部分',
+  `is_delete` int(1) NULL DEFAULT NULL COMMENT '是否禁用',
+  `is_profile` int(1) NULL DEFAULT NULL COMMENT '是否完善个人信息',
+  `is_applied` int(1) NULL DEFAULT NULL COMMENT '是否激活',
+  PRIMARY KEY (`tu_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for t_user_group_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user_group_relation`;
+CREATE TABLE `t_user_group_relation`  (
+  `tug_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
+  `tu_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户ID',
+  `tg_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '组ID',
+  PRIMARY KEY (`tug_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for t_user_permission_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user_permission_relation`;
+CREATE TABLE `t_user_permission_relation`  (
+  `tup_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
+  `tu_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户ID',
+  `tp_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限ID',
+  `permission_type` int(5) NOT NULL COMMENT '权限类型：0.可访问 ，1.可授权',
+  PRIMARY KEY (`tup_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for t_user_role_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user_role_relation`;
+CREATE TABLE `t_user_role_relation`  (
+  `tur_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
+  `tu_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户ID',
+  `tr_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色ID',
+  PRIMARY KEY (`tur_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
