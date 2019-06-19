@@ -11,11 +11,23 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 18/06/2019 15:42:39
+ Date: 19/06/2019 14:51:11
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for access
+-- ----------------------------
+DROP TABLE IF EXISTS `access`;
+CREATE TABLE `access`  (
+  `ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
+  `IPADDR` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'IP地址',
+  `ADDR` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ip所在地区',
+  `VIEW_TIME` timestamp(0) NULL DEFAULT NULL COMMENT '访问时间',
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for article
@@ -194,6 +206,21 @@ INSERT INTO `comment` VALUES ('5', 1, 1, '评论来了，test', '2013-10-25 21:3
 INSERT INTO `comment` VALUES ('6', 1, 1, '继续评论之', '2013-10-25 21:44:26', b'0');
 INSERT INTO `comment` VALUES ('7', 1, 1, '继续评论之', '2013-10-25 21:44:30', b'0');
 INSERT INTO `comment` VALUES ('8', 2, 4, 'comment test', '2013-10-25 21:50:27', b'1');
+
+-- ----------------------------
+-- Table structure for counter
+-- ----------------------------
+DROP TABLE IF EXISTS `counter`;
+CREATE TABLE `counter`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `num` bigint(20) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of counter
+-- ----------------------------
+INSERT INTO `counter` VALUES (1, 0);
 
 -- ----------------------------
 -- Table structure for fileinfo
