@@ -44,4 +44,4 @@ spring:
 #mybatis
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.jackie.myapp.model
+  type-aliases-package: com.jackie.myapp.mapper

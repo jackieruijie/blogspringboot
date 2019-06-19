@@ -19,8 +19,8 @@ import java.util.Set;
 public class ShiroRealm extends AuthorizingRealm {
     Logger log= LoggerFactory.getLogger(ShiroRealm.class);
 
-    @Resource
-    private TuserMapper userMaper;
+    @Autowired
+    private TuserMapper tuserMapper;
 
 
     /**
@@ -58,7 +58,7 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //把authenticationToken转换为UsernamePasswordToken
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        Tuser user = userMaper.getUserByUserName(token.getUsername());
+        Tuser user = tuserMapper.getUserByUserName(token.getUsername());
         if (user == null) {
             throw new UnknownAccountException("用户不存在！");
         }

@@ -1,14 +1,18 @@
 package com.jackie.blogasd;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.cors.CorsConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication(exclude = MongoAutoConfiguration.class)
+@EnableTransactionManagement
+@MapperScan(basePackages = "com.jackie.blogasd.mapper")
 //@SpringBootApplication
 public class BlogAsdApplication {
 
