@@ -3,6 +3,7 @@ package com.jackie.blogweb;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -11,7 +12,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableTransactionManagement
 @MapperScan(basePackages = "com.jackie.blogweb.mapper")
 public class BlogWebApplication extends SpringBootServletInitializer {

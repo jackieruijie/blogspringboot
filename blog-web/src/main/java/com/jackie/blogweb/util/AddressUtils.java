@@ -47,7 +47,6 @@ public class AddressUtils {
                 String region=dataMap.get("region")==""?"":dataMap.get("region").toString();//获取地区
                 String isp=dataMap.get("iso")==""?"":dataMap.get("isp").toString();//h获取网络服务商
                 System.out.println(country + "=" + region + "=" + city + "=" +"=" + isp);
-                sb = new StringBuffer(country).append(region).append(city).append(" ").append(isp);
             }
 
         }
