@@ -14,7 +14,7 @@ import java.util.List;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableTransactionManagement
-@MapperScan(basePackages = "com.jackie.blogweb.mapper")
+@MapperScan("com.jackie.blogweb.mapper*")
 public class BlogWebApplication extends SpringBootServletInitializer {
 
     @Override

@@ -95,4 +95,10 @@
     set num = #{num,jdbcType=BIGINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <update id="updateWebViews" >
+    update counter set num=num+1;
+  </update>
+
 </mapper>

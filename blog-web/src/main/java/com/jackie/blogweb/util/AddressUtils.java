@@ -27,15 +27,17 @@ import java.util.Map;
 
 public class AddressUtils {
 
-    public static String getAddresses(String content, String encodingString)
+    public static String getAddresses(String ip, String encodingString)
             throws UnsupportedEncodingException {
+        ip="ip=" + ip;
         StringBuffer sb =null;
-                // 这里调用pconline的接口
-        String urlStr = "http://ip.taobao.com/service/getIpInfo.php";
+        // 这里调用pconline的接口
         // 从http://ip.taobao.com/service/getIpInfo.php取得IP所在的省市区信息
-        String returnStr = getResult(urlStr, content, encodingString);
+        String urlStr = "http://ip.taobao.com/service/getIpInfo.php";
+
+        String returnStr = getResult(urlStr, ip, encodingString);
+
         Map<String,Object> map= (Map<String, Object>) JSON.parse(returnStr);
-        System.out.println("--------------");
         if (map==null){
             return "获取地址失败！";
         }
@@ -48,9 +50,7 @@ public class AddressUtils {
                 String isp=dataMap.get("iso")==""?"":dataMap.get("isp").toString();//h获取网络服务商
                 System.out.println(country + "=" + region + "=" + city + "=" +"=" + isp);
             }
-
         }
-//        return sb.toString();
         return sb.toString();
     }
 
