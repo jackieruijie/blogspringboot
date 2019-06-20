@@ -13,6 +13,7 @@ public class IndexController {
     //首页跳转
     @RequestMapping("/")
     public String index(HttpServletRequest request) {
+        System.out.println("success!!!!!!");
         return "/index";
     }
 

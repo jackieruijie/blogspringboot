@@ -3,16 +3,19 @@ server:
 
 spring:
   profiles:
-      active: dev
-
-
+    active: dev
   application:
-    name: blog-web
+    name: blog-asd
 
 
 
   thymeleaf:
     prefix: classpath:/static/
+    cache: true
+
+  resources:
+    static-locations: classpath:/static/
+
 
 
 

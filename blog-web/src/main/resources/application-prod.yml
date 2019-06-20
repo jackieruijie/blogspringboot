@@ -12,10 +12,6 @@ spring:
       store-type: none
 
 
-  thymeleaf:
-    prefix: classpath:/static/
-
-
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml

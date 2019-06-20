@@ -9,8 +9,6 @@ spring:
       store-type: none
 
 
-  thymeleaf:
-    prefix: classpath:/static/
 
 # mybatis
 mybatis:
