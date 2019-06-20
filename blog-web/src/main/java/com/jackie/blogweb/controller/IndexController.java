@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class IndexController {
-    private Logger log= LoggerFactory.getLogger(IndexController.class);
+    private final static Logger log= LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
     private IndexService indexService;

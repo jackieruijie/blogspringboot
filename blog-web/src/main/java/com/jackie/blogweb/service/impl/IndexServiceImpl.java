@@ -39,10 +39,6 @@ public class IndexServiceImpl implements IndexService {
             access.setViewTime(new Date());
             res=accessMapper.insertSelective(access);
             counterMapper.updateWebViews();
-            if (res>0){
-                System.out.println("add success");
-                System.out.println(access.toString());
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
