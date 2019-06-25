@@ -1,6 +1,6 @@
 package com.jackie.bloghandle.ffmpeg.data;
 
-import com.js.js4gtranscodinglive.ffmpeg.handler.OutHandler;
+import com.jackie.bloghandle.ffmpeg.handler.OutHandler;
 
 /**
  * 用于存放任务id,任务主进程，任务输出线程

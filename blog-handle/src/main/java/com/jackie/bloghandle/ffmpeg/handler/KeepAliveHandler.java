@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
-import com.js.js4gtranscodinglive.ffmpeg.data.TaskDao;
-import com.js.js4gtranscodinglive.ffmpeg.util.ExecUtil;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
+import com.jackie.bloghandle.ffmpeg.data.TaskDao;
+import com.jackie.bloghandle.ffmpeg.util.ExecUtil;
 
 /**
  * 任务保活处理器（一个后台保活线程，用于处理异常中断的持久任务）

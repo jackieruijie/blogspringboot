@@ -2,9 +2,9 @@ package com.jackie.bloghandle.ffmpeg.util;
 
 import java.io.IOException;
 
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
-import com.js.js4gtranscodinglive.ffmpeg.handler.OutHandler;
-import com.js.js4gtranscodinglive.ffmpeg.handler.OutHandlerMethod;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
+import com.jackie.bloghandle.ffmpeg.handler.OutHandler;
+import com.jackie.bloghandle.ffmpeg.handler.OutHandlerMethod;
 
 /**
  * 命令行操作工具类

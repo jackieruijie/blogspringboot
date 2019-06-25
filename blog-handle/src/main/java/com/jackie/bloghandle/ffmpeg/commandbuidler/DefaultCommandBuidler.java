@@ -1,6 +1,7 @@
 package com.jackie.bloghandle.ffmpeg.commandbuidler;
 
-import com.js.js4gtranscodinglive.ffmpeg.CommandManager;
+
+import com.jackie.bloghandle.ffmpeg.CommandManager;
 
 /**
  * 默认流式命令行构建器（非线程安全）

@@ -1,11 +1,12 @@
 package com.jackie.bloghandle.ffmpeg.handler;
 
+import com.jackie.bloghandle.ffmpeg.CommandManager;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.js.js4gtranscodinglive.ffmpeg.CommandManager;
 
 /**
  * 任务消息输出处理器

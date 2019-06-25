@@ -1,6 +1,6 @@
 package com.jackie.bloghandle.ffmpeg.handler;
 
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
 
 /**
  * 任务执行接口

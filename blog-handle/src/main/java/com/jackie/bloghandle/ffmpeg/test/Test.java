@@ -28,8 +28,10 @@ public class Test {
 		map.put("output", "rtmp://127.0.0.1/live/Test123");
 		map.put("codec", "h264");
 		map.put("fmt", "flv");
-		map.put("fps", "25");
-		map.put("rs", "640x360");
+		map.put("-c:v", "copy");
+		map.put("-c:a", "copy");
+		map.put("fps", "30");
+		map.put("rs", "1920*1080");
 		map.put("twoPart", "2");
 		// 执行任务，id就是appName，如果执行失败返回为null
 		String id = manager.start(map);//开始执行转码程序

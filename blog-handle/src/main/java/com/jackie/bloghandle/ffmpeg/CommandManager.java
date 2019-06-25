@@ -1,16 +1,16 @@
 package com.jackie.bloghandle.ffmpeg;
 
-import static com.js.js4gtranscodinglive.ffmpeg.util.PropertiesUtil.load;
 
 import java.util.Collection;
 import java.util.Map;
 
-import com.js.js4gtranscodinglive.ffmpeg.commandbuidler.CommandAssembly;
-import com.js.js4gtranscodinglive.ffmpeg.commandbuidler.CommandBuidler;
-import com.js.js4gtranscodinglive.ffmpeg.config.ProgramConfig;
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
-import com.js.js4gtranscodinglive.ffmpeg.data.TaskDao;
-import com.js.js4gtranscodinglive.ffmpeg.handler.TaskHandler;
+import com.jackie.bloghandle.ffmpeg.commandbuidler.CommandAssembly;
+import com.jackie.bloghandle.ffmpeg.commandbuidler.CommandBuidler;
+import com.jackie.bloghandle.ffmpeg.config.ProgramConfig;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
+import com.jackie.bloghandle.ffmpeg.data.TaskDao;
+import com.jackie.bloghandle.ffmpeg.handler.TaskHandler;
+import com.jackie.bloghandle.ffmpeg.util.PropertiesUtil;
 
 /**
  * FFmpeg命令操作管理器，可执行FFmpeg命令/停止/查询任务信息
@@ -21,7 +21,7 @@ import com.js.js4gtranscodinglive.ffmpeg.handler.TaskHandler;
  */
 public interface CommandManager {
 	
-	public static final ProgramConfig config=load("loadFFmpeg.properties", ProgramConfig.class);
+	public static final ProgramConfig config= PropertiesUtil.load("loadFFmpeg.properties", ProgramConfig.class);
 	/**
 	 * 注入自己实现的持久层
 	 * 

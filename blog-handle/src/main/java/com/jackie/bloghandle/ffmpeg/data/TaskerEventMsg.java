@@ -1,6 +1,6 @@
 package com.jackie.bloghandle.ffmpeg.data;
 
-import com.js.js4gtranscodinglive.ffmpeg.callback.EventCallBackType;
+import com.jackie.bloghandle.ffmpeg.callback.EventCallBackType;
 
 /**
  * 命令行事件消息

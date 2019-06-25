@@ -41,10 +41,10 @@ public class PropertiesUtil {
 				//尝试从jar包中读取默认配置文件
 				ClassLoader classloader = Thread.currentThread().getContextClassLoader();
 				try {
-					is = classloader.getResourceAsStream("cc/eguid/FFmpegCommandManager/config/defaultFFmpegConfig.properties");
-					System.err.println("读取默认配置文件：defaultFFmpegConfig.properties");
+					is = classloader.getResourceAsStream("cc/eguid/FFmpegCommandManager/config/loadFFmpeg.properties");
+					System.err.println("读取默认配置文件：loadFFmpeg.properties");
 				} catch (Exception e2) {
-					System.err.println("没找到默认配置文件:defaultFFmpegConfig.properties");
+					System.err.println("没找到默认配置文件:loadFFmpeg.properties");
 					return null;
 				}
 			}

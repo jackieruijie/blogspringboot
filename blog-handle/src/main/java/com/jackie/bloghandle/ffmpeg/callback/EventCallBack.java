@@ -1,6 +1,6 @@
 package com.jackie.bloghandle.ffmpeg.callback;
 
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
 
 /**
  * 事件回调

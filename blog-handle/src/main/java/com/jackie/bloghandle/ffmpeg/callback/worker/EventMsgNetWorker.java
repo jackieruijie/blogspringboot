@@ -1,10 +1,11 @@
 package com.jackie.bloghandle.ffmpeg.callback.worker;
 
-import com.js.js4gtranscodinglive.ffmpeg.CommandManager;
-import com.js.js4gtranscodinglive.ffmpeg.callback.EventCallBack;
-import com.js.js4gtranscodinglive.ffmpeg.callback.EventCallBackType;
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
-import com.js.js4gtranscodinglive.ffmpeg.data.TaskerEventMsg;
+
+import com.jackie.bloghandle.ffmpeg.CommandManager;
+import com.jackie.bloghandle.ffmpeg.callback.EventCallBack;
+import com.jackie.bloghandle.ffmpeg.callback.EventCallBackType;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
+import com.jackie.bloghandle.ffmpeg.data.TaskerEventMsg;
 
 import java.io.IOException;
 import java.net.URL;

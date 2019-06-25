@@ -26,8 +26,7 @@ public class CommandAssemblyImpl implements CommandAssembly{
 				 * appName-->应用名
 				 * twoPart：0-推一个元码流；1-推一个自定义推流；2-推两个流（一个是自定义，一个是元码）
 				 */
-				if (paramMap.containsKey("input") && paramMap.containsKey("output") && paramMap.containsKey("appName")
-						&& paramMap.containsKey("twoPart")) {
+				if (paramMap.containsKey("input") && paramMap.containsKey("output") && paramMap.containsKey("appName")) {
 					String input =  paramMap.get("input");
 					String output =  paramMap.get("output");
 					String appName = paramMap.get("appName");
@@ -41,6 +40,14 @@ public class CommandAssemblyImpl implements CommandAssembly{
 					if ("0".equals(twoPart)) {
 						comm.append(" -vcodec " + codec + " -f flv -an " + output + appName);
 					} else {
+                        // -c:a音频选项
+                        if (paramMap.containsKey("-c:a")) {
+                            comm.append(" -c:a " + paramMap.get("-c:a"));
+                        }
+                        // -c:v 视频选项
+                        if (paramMap.containsKey("-c:v")) {
+                            comm.append(" -c:v " + paramMap.get("-c:a"));
+                        }
 						// -f ：转换格式，默认flv
 						if (paramMap.containsKey("fmt")) {
 							comm.append(" -f " +  paramMap.get("fmt"));
@@ -55,11 +62,11 @@ public class CommandAssemblyImpl implements CommandAssembly{
 							comm.append(" -s " + paramMap.get("rs"));
 						}
 						// 输出地址+发布的应用名
-						comm.append(" -an " + output + appName);
+						comm.append(" "+output);
 						// 当twoPart为2时推两个流，一个自定义流，一个元码流
 						if ("2".equals(twoPart)) {
 							// 一个视频源，可以有多个输出，第二个输出为拷贝源视频输出，不改变视频的各项参数并且命名为应用名+HD
-							comm.append(" -vcodec copy  -f flv -an ").append(output + appName + "HD");
+							comm.append(" -vcodec copy  -f flv -an ").append(output + "HD");
 						}
 					}
 					return comm.toString();
