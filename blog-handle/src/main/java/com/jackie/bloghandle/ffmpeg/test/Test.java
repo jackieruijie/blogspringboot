@@ -1,13 +1,14 @@
 package com.jackie.bloghandle.ffmpeg.test;
 
+import com.jackie.bloghandle.ffmpeg.CommandManager;
+import com.jackie.bloghandle.ffmpeg.CommandManagerImpl;
+import com.jackie.bloghandle.ffmpeg.commandbuidler.CommandBuidlerFactory;
+import com.jackie.bloghandle.ffmpeg.data.CommandTasker;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.js.js4gtranscodinglive.ffmpeg.CommandManager;
-import com.js.js4gtranscodinglive.ffmpeg.CommandManagerImpl;
-import com.js.js4gtranscodinglive.ffmpeg.commandbuidler.CommandBuidlerFactory;
-import com.js.js4gtranscodinglive.ffmpeg.data.CommandTasker;
 
 /**
  * 测试

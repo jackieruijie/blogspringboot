@@ -14,13 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 public class IndexController {
     private final static Logger log= LoggerFactory.getLogger(IndexController.class);
 
+
     @Autowired
     private IndexService indexService;
 
     //首页跳转
     @RequestMapping("/")
     public String index(HttpServletRequest request) {
-        System.out.println(" comming  success!!!!!!");
+        log.info("执行index方法");
+        log.info(" comming  success!!!!!!");
         int res=indexService.addViews(request);
         if (res>0){
             return "/index";

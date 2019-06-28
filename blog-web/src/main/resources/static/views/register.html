@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <title>注册</title>
 </head>
-<body>
+<body ng-app="register" ng-controller="registerController">
+
+<p>注册</p>
+
+<form method="post" >
+    <input type="text" ng-model="loginName" name="loginName" >
+    <input type="password" ng-model="passwd" name="passwd" >
+    <input type="text" ng-model="realName" name="realName">
+    <input type="text" ng-model="mobile" name="mobile">
+    <input type="text" ng-model="email" name="email">
+</form>
+
+
+
+
 
 </body>
 </html>

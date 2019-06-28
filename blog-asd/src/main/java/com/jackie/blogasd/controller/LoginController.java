@@ -9,11 +9,13 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.ExecutionException;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 /**
@@ -29,7 +31,7 @@ import java.util.concurrent.Callable;
 public class LoginController {
 
 
-    @RequestMapping("login")
+    @PostMapping("login")
     public String userLogin(String username,String password){
         //获取当前登陆用户
         Subject subject= SecurityUtils.getSubject();
@@ -53,6 +55,13 @@ public class LoginController {
         return "login";
 
         }
+
+
+    @PostMapping("register")
+    public String userResgister(Map<String,String> userInfo){
+        return null;
+
+    }
 
 
 
