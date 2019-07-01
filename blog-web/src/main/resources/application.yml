@@ -7,19 +7,24 @@ spring:
   application:
     name: blog-asd
 
-
-
   thymeleaf:
     prefix: classpath:/static/
     cache: true
 
   resources:
     static-locations: classpath:/static/
+  data:
+    cassandra:
+      consistency-level:
+  #热部署生效
+  devtools:
+    restart:
+      enabled: true
+      exclude: classpath:/static/
 
 
 
-
-debug: true
+#debug: true
 
 #logging:
 #  config: classpath:log4j2.yml

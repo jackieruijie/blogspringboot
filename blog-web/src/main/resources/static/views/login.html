@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+
     <title>登陆</title>
     <link href="control/ui/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="control/ui/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -9,13 +14,61 @@
     <script src="control/ui/angular/angular.js"></script>
     <script src="control/ui/angular/angular.min.js"></script>
     <script src="control/ui/jquery/jquery-3.4.1.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="/control/js/signin.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+    </style>
+
 </head>
-<body ng-app="login" ng-controller="loginController">
+<body ng-app="login" ng-controller="loginController" class="text-center">
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
 
 
-<p>这是登陆页面</p>
+                <form class="form-signin">
+                    <!--    <img class="mb-4" src="./Signin Template · Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72">-->
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <label for="inputUsername" class="sr-only">Username</label>
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus=""><br/>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+                </form>
 
 
+
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+</div>
 
 
 <script src="/control/js/login.js"></script>

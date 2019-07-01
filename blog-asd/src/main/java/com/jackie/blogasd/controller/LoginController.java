@@ -1,5 +1,6 @@
 package com.jackie.blogasd.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;
@@ -58,7 +59,12 @@ public class LoginController {
 
 
     @PostMapping("register")
-    public String userResgister(Map<String,String> userInfo){
+    public String userResgister(Object o){
+//        Map<String,String> userMaps= JSON.toJSONString(o);
+        System.out.println(o.toString());
+
+
+
         return null;
 
     }

@@ -33,12 +33,14 @@ public class IndexController {
     //登陆
     @RequestMapping("login")
     public String login() {
+        log.info("执行login方法----------------------");
         return "/views/login";
     }
 
     //注册
     @RequestMapping("register")
     public String register() {
+        log.info("执行register方法---------------1234542131231423-------");
         return "/views/register";
     }
 
