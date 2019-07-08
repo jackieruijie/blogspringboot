@@ -58,7 +58,7 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //把authenticationToken转换为UsernamePasswordToken
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        Tuser user = tuserMapper.getUserByUserName(token.getUsername());
+        Tuser user = tuserMapper.getUserByUsername(token.getUsername());
         if (user == null) {
             throw new UnknownAccountException("用户不存在！");
         }

@@ -3,24 +3,28 @@ package com.jackie.blogasd;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootApplication(exclude = MongoAutoConfiguration.class)
-@EnableTransactionManagement
-@MapperScan(basePackages = "com.jackie.blogasd.mapper")
-//@SpringBootApplication
+@SpringBootApplication
+@MapperScan("com.jackie.blogasd.mapper")
 public class BlogAsdApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BlogAsdApplication.class, args);
     }
 
-
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", buildConfig()); // 4
+        return new CorsFilter(source);
+    }
 
     private CorsConfiguration buildConfig() {
         List<String> exposedHeaders = new ArrayList<>();
