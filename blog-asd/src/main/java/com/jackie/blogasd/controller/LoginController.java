@@ -23,24 +23,25 @@ import java.util.Map;
 @RestController
 @RequestMapping("asd")
 public class LoginController {
-    private final static Logger log= LoggerFactory.getLogger(LoginController.class);
+    private final static Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private UserService userService;
 
     /**
      * 注册
+     *
      * @param object 传进的参数
      * @return
      */
     @ResponseBody
     @PostMapping("register")
-    public Result<Object> userRegister(String object){
-       int res = userService.insertUser(object);
-        if (res > 0){
+    public Result<Object> userRegister(String object) {
+        int res = userService.insertUser(object);
+        if (res > 0) {
             log.info("注册成功！");
             return ResponseUtil.ok(res);
-        }else {
+        } else {
             log.info("注册失败！");
             return ResponseUtil.fall(res);
         }
@@ -49,35 +50,18 @@ public class LoginController {
 
     /**
      * 登录
+     *
      * @param object
      * @return
      */
     @ResponseBody
     @PostMapping("login")
-    public Result<Object> userLogin(String object){
-        Map<String,String> userMap= (Map<String, String>) JSON.parse(object);
-        String username=userMap.get("username").trim();
-        String password=userMap.get("password").trim();
-        Subject subject= SecurityUtils.getSubject();//获取当前登陆用户
-        if (!subject.isAuthenticated()){
-            try {
-                UsernamePasswordToken token=new UsernamePasswordToken(username,password);
-            }catch (UnknownAccountException e) {
-                e.printStackTrace();
-//                System.out.println(e.getMessage());
-                System.out.println("用户名错误！");
-            }catch (IncorrectCredentialsException e) {
-                e.printStackTrace();
-//                System.out.println("密码错误！");
-                System.out.println(e.getMessage());
-            } catch (AuthenticationException e) {
-                e.printStackTrace();
-//                System.out.println("其他错误！");
-                System.out.println(e.getMessage());
-            }
-        }
-
-        return null;
+    public Result<Object> userLogin(String object) {
+        Map<String, String> userMap = (Map<String, String>) JSON.parse(object);
+        String username = userMap.get("username").trim();
+        String password = userMap.get("password").trim();
+        String result=userService.userLogin(username,password);
+        return ResponseUtil.ok(result);
     }
 
 

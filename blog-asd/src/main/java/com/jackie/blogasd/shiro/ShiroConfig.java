@@ -1,10 +1,14 @@
+/*
 package com.jackie.blogasd.shiro;
 
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.Filter;
 
+*/
 /**
  * @program: blog-asd
  * @ClassName: ShiroConfig
@@ -21,17 +26,21 @@ import javax.servlet.Filter;
  * @author: jackie
  * @create: 2019-06-18 14:38
  * @VERSION:v1.0
- **/
+ **//*
+
 
 @Configuration
 public class ShiroConfig {
 
+    private final static Logger log= LoggerFactory.getLogger(ShiroConfig.class);
 
-    /**
+    */
+/**
      * 凭证匹配器
      *
      * @return
-     */
+     *//*
+
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
@@ -42,11 +51,13 @@ public class ShiroConfig {
         return hashedCredentialsMatcher;
     }
 
-    /**
+    */
+/**
      * 自定义Realm
      *
      * @return
-     */
+     *//*
+
     @Bean
     public ShiroRealm shiroRealm() {
         ShiroRealm realm = new ShiroRealm();
@@ -55,11 +66,13 @@ public class ShiroConfig {
     }
 
 
-    /**
+    */
+/**
      * WEB安全管理器
      *
      * @return
-     */
+     *//*
+
     @Bean
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -68,11 +81,13 @@ public class ShiroConfig {
     }
 
 
-    /**
+    */
+/**
      * 设置过滤规则
      *
      * @return
-     */
+     *//*
+
     @Bean
     public ShiroFilterFactoryBean filterFactoryBean(SecurityManager securityManager) {
         // shiro的过滤器
@@ -100,3 +115,4 @@ public class ShiroConfig {
 
 
 }
+*/

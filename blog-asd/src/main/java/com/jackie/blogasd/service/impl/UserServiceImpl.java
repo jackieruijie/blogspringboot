@@ -51,4 +51,18 @@ public class UserServiceImpl implements UserService {
         log.info("加密后的密码为："+result.toString());
         return userMapper.insertSelective(user);
     }
+
+    @Override
+    public String userLogin(String uname, String password) {
+        Tuser u=userMapper.getUserByUsername(uname);
+        if (u == null){
+            return "用户不存在，请先注册";
+        }
+        Object result = new SimpleHash("MD5",password,u.getSalt(),1024);//密码加密用于比对
+        if (result.toString().equals(u.getPassword())){
+            return "登陆成功";
+        }else {
+            return "密码不正确，请验证密码后重新登陆";
+        }
+    }
 }

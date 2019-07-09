@@ -1,3 +1,4 @@
+/*
 package com.jackie.blogasd.shiro;
 
 import com.alibaba.fastjson.JSONObject;
@@ -14,9 +15,11 @@ import java.io.PrintWriter;
 
 public class ShiroUserFilter extends UserFilter {
 
-    /**
+    */
+/**
      * 在访问过来的时候检测是否为OPTIONS请求，如果是就直接返回true
-     */
+     *//*
+
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -28,10 +31,12 @@ public class ShiroUserFilter extends UserFilter {
         return super.preHandle(request,response);
     }
 
-    /**
+    */
+/**
      * 该方法会在验证失败后调用，这里由于是前后端分离，后台不控制页面跳转
      * 因此重写改成传输JSON数据
-     */
+     *//*
+
     @Override
     protected void saveRequestAndRedirectToLogin(ServletRequest request, ServletResponse response) throws IOException {
         saveRequest(request);
@@ -42,9 +47,11 @@ public class ShiroUserFilter extends UserFilter {
         out.close();
     }
 
-    /**
+    */
+/**
      * 为response设置header，实现跨域
-     */
+     *//*
+
     private void setHeader(HttpServletRequest request,HttpServletResponse response){
         //跨域的header设置
         response.setHeader("Access-control-Allow-Origin", request.getHeader("Origin"));
@@ -57,3 +64,4 @@ public class ShiroUserFilter extends UserFilter {
     }
 
 }
+*/

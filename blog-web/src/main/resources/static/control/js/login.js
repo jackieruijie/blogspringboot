@@ -47,14 +47,14 @@ app.controller('loginController',function ($scope,$location,$interval,$http) {
         debugger
         $http(request).success(function (response) {
             debugger
-            if (response.code==200 && response.data > 0){
+            if (response.code==200 && response.data==='登陆成功'){
                 //跳转到登录页
                 /*$http.get($scope.loginUrl+'login').success(function (res) {
                 });*/
-                alert("注册成功，请登陆！")
+                alert("登陆成功！")
                 // location.href='views/login.html';
             }else {
-                alert("注册失败！")
+                alert("登陆失败！")
             }
 
         });

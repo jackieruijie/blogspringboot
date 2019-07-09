@@ -1,3 +1,4 @@
+/*
 package com.jackie.blogasd.shiro;
 
 import com.jackie.blogasd.mapper.TuserMapper;
@@ -17,17 +18,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ShiroRealm extends AuthorizingRealm {
-    Logger log= LoggerFactory.getLogger(ShiroRealm.class);
+    private final static Logger log= LoggerFactory.getLogger(AuthorizingRealm.class);
 
     @Autowired
     private TuserMapper tuserMapper;
 
 
-    /**
+    */
+/**
      * 授权
      * @param principalCollection
      * @return
-     */
+     *//*
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.info("doGetAuthorizationInfo"+principalCollection.toString());
@@ -48,12 +51,14 @@ public class ShiroRealm extends AuthorizingRealm {
         return info;
     }
 
-    /**
+    */
+/**
      * 密码验证
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
-     */
+     *//*
+
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //把authenticationToken转换为UsernamePasswordToken
@@ -77,3 +82,4 @@ public class ShiroRealm extends AuthorizingRealm {
         return info;
     }
 }
+*/
