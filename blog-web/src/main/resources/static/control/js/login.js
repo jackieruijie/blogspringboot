@@ -1,6 +1,6 @@
 var app=angular.module('login',[]);
 app.controller('loginController',function ($scope,$location,$interval,$http) {
-    $scope.login;
+    // $scope.login;
     $scope.appUrl=$location.absUrl();
     $scope.currTime;
     $scope.loginUrl;

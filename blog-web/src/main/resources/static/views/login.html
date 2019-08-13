@@ -47,21 +47,19 @@
 
 
                 <form class="form-signin">
-                    <!--    <img class="mb-4" src="./Signin Template · Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72">-->
                     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                     <label for="inputUsername" class="sr-only">Username</label>
                     <input type="text" id="inputUsername" class="form-control" ng-model="username" placeholder="Username" required="" autofocus=""><br/>
                     <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" class="form-control" ng-model="password" placeholder="Password" required="">
                     <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="{{loginUrl+'forgetPass'}}">忘记密码？</a>
-                        </label>
+                        <spqn><a href="{{loginUrl+'register'}}">还没有账号？请先注册</a></spqn>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <spqn><a href="{{loginUrl+'forgetPass'}}">忘记密码？</a></spqn><br/>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" ng-click="blogLogin()" type="submit">Sign in</button>
-                    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+                    <br/>
+                    <p class="mt-5 mb-3 text-muted">Copyright&nbsp;©&nbsp;青宇软件工作室 . All rights reserved   Powered  by 2017-2019</p>
                 </form>
 
 
@@ -73,6 +71,6 @@
 </div>
 
 
-<script src="/control/js/login.js"></script>
+<script src="control/js/login.js"></script>
 </body>
 </html>

@@ -58,6 +58,7 @@ public class IndexController {
      */
     @RequestMapping("forgetPass")
     public String forgetPass() {
+        System.out.println("这是忘记密码的方法！！！");
         log.info("执行forgetPass方法------------------");
         return "/views/forgetpass";
     }
