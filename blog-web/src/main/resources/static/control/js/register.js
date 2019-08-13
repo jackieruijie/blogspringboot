@@ -9,9 +9,9 @@ app.controller('registerController', function ($scope, $location, $interval, $ht
     }, 1000);
 
     //获取注册地址
-    $http.get("/control/json/Url.json").success(function (res) {
-        $scope.asdUrl = res.asd;//获取登陆地址
-        $scope.loginUrl = res.logUrl;//获取登陆地址
+    $http.get("control/json/Url.json").success(function (res) {
+        asdUrl = res.asd;//获取登陆地址
+        loginUrl = res.logUrl;//获取登陆地址
     });
 
 
@@ -68,25 +68,23 @@ app.controller('registerController', function ($scope, $location, $interval, $ht
         //建立HTTP请求
         var request = {
             method: 'POST',
-            url: $scope.asdUrl + "asd/register",//请求的地址
-            params:{
+            url:  asdUrl + "asd/register",//请求的地址
+            params: {
                 object: $scope.userRegister //message 必须是a=b&c=d的格式
             }
 
         };
-                  //提交表单结果
+
+
+        //提交表单结果
+        $http(request).success(function (response) {
             debugger
-            $http(request).success(function (response) {
-                debugger
-                if (response.code==200 && response.data > 0){
-                    //跳转到登录页
-                    /*$http.get($scope.loginUrl+'login').success(function (res) {
-                    });*/
-                    alert("注册成功，请登陆！")
-                    // location.href='views/login.html';
-                }else {
-                    alert("注册失败！")
-                }
+            if (response.code == 200 && response.data > 0) {
+                //跳转到登录页
+                alert("注册成功，请登陆！")
+            } else {
+                alert("注册失败！" + response.data)
+            }
 
         });
 

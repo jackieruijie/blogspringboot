@@ -4,12 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.jackie.blogasd.service.UserService;
 import com.jackie.blogutils.respose.ResponseUtil;
 import com.jackie.blogutils.respose.Result;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +31,8 @@ public class LoginController {
     @ResponseBody
     @PostMapping("register")
     public Result<Object> userRegister(String object) {
-        int res = userService.insertUser(object);
-        if (res > 0) {
+        String res = userService.insertUser(object);
+        if ("1".equals(res)) {
             log.info("注册成功！");
             return ResponseUtil.ok(res);
         } else {

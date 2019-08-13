@@ -30,19 +30,40 @@ public class IndexController {
         return null;
     }
 
-    //登陆
+    /**
+     * 登陆页面跳转
+     * @return
+     */
+
     @RequestMapping("login")
     public String login() {
         log.info("执行login方法----------------------");
         return "/views/login";
     }
 
-    //注册
+    /**
+     * 注册页面跳转
+     * @return
+     */
     @RequestMapping("register")
     public String register() {
-        log.info("执行register方法---------------1234542131231423-------");
+        log.info("执行register方法------------------");
         return "/views/register";
     }
+
+
+    /**
+     * 忘记密码
+     * @return
+     */
+    @RequestMapping("forgetPass")
+    public String forgetPass() {
+        log.info("执行forgetPass方法------------------");
+        return "/views/forgetpass";
+    }
+
+
+
 
 
 }

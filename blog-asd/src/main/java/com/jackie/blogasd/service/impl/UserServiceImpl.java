@@ -23,13 +23,13 @@ public class UserServiceImpl implements UserService {
     private TuserMapper userMapper;
 
     @Override
-    public int insertUser(String userObject) {
+    public String insertUser(String userObject) {
         Map<String,String> userMap= (Map<String, String>) JSON.parse(userObject);
         if (userMap.containsKey("username")){
             Tuser exitUser=userMapper.getUserByUsername(userMap.get("username").trim());
             if (exitUser != null){
                 log.info("用户已存在！");
-                return 0;
+                return "用户已存在！";
             }
         }
         Tuser user=new Tuser();
@@ -48,8 +48,8 @@ public class UserServiceImpl implements UserService {
         //密码加密 ；参数列表(加密方式，密码原值，盐值，加密次数)
         Object result = new SimpleHash("MD5",user.getPassword(),user.getSalt(),1024);
         user.setPassword(result.toString());//加密后的密码
-        log.info("加密后的密码为："+result.toString());
-        return userMapper.insertSelective(user);
+        Integer res=userMapper.insertSelective(user);
+        return res.toString();
     }
 
     @Override

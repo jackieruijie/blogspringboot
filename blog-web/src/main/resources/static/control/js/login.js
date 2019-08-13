@@ -13,7 +13,7 @@ app.controller('loginController',function ($scope,$location,$interval,$http) {
     //获取登陆地址
     $http.get("/control/json/Url.json").success(function (res) {
         loginUrl=res.logUrl;//获取登陆地址
-        $scope.asdUrl = res.asd;//获取登陆地址
+        asdUrl = res.asd;//获取登陆地址
     });
 
     //登陆
@@ -36,7 +36,7 @@ app.controller('loginController',function ($scope,$location,$interval,$http) {
         //建立HTTP请求
         var request = {
             method: 'POST',
-            url: $scope.asdUrl + "asd/login",//请求的地址
+            url:  asdUrl + "asd/login",//请求的地址
             params:{
                 object: $scope.loginObject
             }
