@@ -1,7 +1,8 @@
 package com.jackie.blogasd.mailUtil;
 
+import com.jackie.blogasd.util.RandomUtil;
+
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -93,7 +94,7 @@ public class SendMail {
 
             // 4. Subject: 邮件主题
             message.setSubject("验证邮件", "UTF-8");
-            Object o="欢迎您成为个人博客的一员，您的验证码是："+25896+",验证码两分钟内有效；转发给他人可能导致您的账号被盗，请勿泄露（系统邮件，请勿回复）。";
+            Object o="欢迎您成为个人博客的一员，您的验证码是："+ RandomUtil.getCode() +",验证码两分钟内有效；转发给他人可能导致您的账号被盗，请勿泄露（系统邮件，请勿回复）。";
             // 5. Content: 邮件正文（可以使用html标签）
             message.setContent(o, "text/html;charset=UTF-8");
             // 6. 设置发件时间
