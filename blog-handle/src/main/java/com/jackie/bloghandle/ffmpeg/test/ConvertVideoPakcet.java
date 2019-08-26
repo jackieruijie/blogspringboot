@@ -1,14 +1,13 @@
 package com.jackie.bloghandle.ffmpeg.test;
 
-import org.bytedeco.javacv.FFmpegFrameGrabber;
-import org.bytedeco.javacv.FFmpegFrameRecorder;
-import org.bytedeco.javacv.FrameGrabber.Exception;
+import static org.bytedeco.javacpp.avcodec.*;
+import static org.bytedeco.javacpp.avformat.*;
 
 import java.io.IOException;
 
-import static org.bytedeco.javacpp.avcodec.AVPacket;
-import static org.bytedeco.javacpp.avcodec.av_free_packet;
-import static org.bytedeco.javacpp.avformat.AVFormatContext;
+import org.bytedeco.javacv.FFmpegFrameGrabber;
+import org.bytedeco.javacv.FFmpegFrameRecorder;
+import org.bytedeco.javacv.FrameGrabber.Exception;
 
 /**
  * rtsp转rtmp（转封装方式）
@@ -36,6 +35,8 @@ public class ConvertVideoPakcet {
     private int audioChannels;
     private int audioBitrate;
     private int sampleRate;
+    private int audioCodec;
+    private String audioCodecName;
 
     /**
      * 选择视频源
@@ -55,18 +56,19 @@ public class ConvertVideoPakcet {
             width = grabber.getImageWidth();
             height = grabber.getImageHeight();
         }
-        // 视频参数
+        // 获取视频参数
         audiocodecid = grabber.getAudioCodec();
         System.err.println("音频编码：" + audiocodecid);
         codecid = grabber.getVideoCodec();
         framerate = grabber.getVideoFrameRate();// 帧率
         bitrate = grabber.getVideoBitrate();// 比特率
-        // 音频参数
+        // 获取音频参数
         // 想要录制音频，这三个参数必须有：audioChannels > 0 && audioBitrate > 0 && sampleRate > 0
         audioChannels = grabber.getAudioChannels();
         audioBitrate = grabber.getAudioBitrate();
+        audioCodec=grabber.getAudioCodec();
+        audioCodecName=grabber.getAudioCodecName();
         sampleRate = grabber.getSampleRate();
-        //        grabber.getAudioStream();
         if (audioBitrate < 1) {
             audioBitrate = 128 * 1000;// 默认音频比特率
         }
@@ -74,11 +76,11 @@ public class ConvertVideoPakcet {
     }
 
     /**
-     *      * 选择输出
-     *     * @param out
+     * 选择输出
+     * @param out
      *
      * @author eguid
-     *     * @throws IOException
+     * @throws IOException
      */
     public ConvertVideoPakcet to(String out) throws IOException {
         // 录制/推流器
@@ -86,22 +88,19 @@ public class ConvertVideoPakcet {
         record.setVideoOption("crf", "25");
         record.setAudioOption("acodec","copy");
         record.setGopSize(2);
+        //设置视频参数
         record.setFrameRate(framerate);
         record.setVideoBitrate(bitrate);
-//        record.setAudioChannels(audioChannels);//1
-//        record.setAudioChannels(2);//1
-//        record.setAudioBitrate(audioBitrate);//6400
-//        record.setAudioBitrate(128000);//6400
-//        record.setSampleRate(sampleRate);//8000
-//        record.setSampleRate(16000);//8000
+//        record.setAudioChannels(audioChannels);
+        record.setAudioBitrate(audioBitrate);
+        record.setSampleRate(sampleRate);
         AVFormatContext fc = null;
         if (out.indexOf("rtmp") >= 0 || out.indexOf("flv") > 0) {
             // 封装格式flv
             record.setFormat("flv");
-            record.setAudioCodecName("aac");
-//                        record.setAudioCodec(avcodec.AN);
-//            record.setVideoCodec(codecid);
-//            record.setVideoCodec(AV_CODEC_ID_H264);
+            record.setAudioCodecName(audioCodecName);
+            record.setAudioCodec(audioCodec);
+            record.setVideoCodec(codecid);
             fc = grabber.getFormatContext();
         }
         record.start(fc);
@@ -109,9 +108,9 @@ public class ConvertVideoPakcet {
     }
 
     /**
-     *      * 转封装
-     *      * @author eguid
-     *      * @throws IOException
+     * 转封装
+     * @author eguid
+     *  @throws IOException
      *     
      */
     public ConvertVideoPakcet go() throws IOException {
@@ -143,9 +142,10 @@ public class ConvertVideoPakcet {
     public static void main(String[] args) throws Exception, IOException {
 
 //运行，设置视频源和推流地址
-        new ConvertVideoPakcet().from("rtsp://192.168.1.130:8554/00000012081310000001/0")
-                .to("rtmp://192.168.1.50/live/00000012081310000001")
+        new ConvertVideoPakcet().from("rtsp://101.200.49.0:8554/00000047071310001227/0")
+                .to("rtmp://192.168.1.50/live/00000047071310001227")
                 .go();
     }
 }
+
 

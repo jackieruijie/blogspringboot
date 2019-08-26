@@ -5,7 +5,6 @@ import org.bytedeco.javacv.FFmpegFrameRecorder;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,12 +64,5 @@ public  class ConvertVideoPakcet {
 
         return this;
     }
-
-
-
-
-
-
-
 
 }
