@@ -142,7 +142,7 @@ public class ConvertVideoPakcet {
     public static void main(String[] args) throws Exception, IOException {
 
 //运行，设置视频源和推流地址
-        new ConvertVideoPakcet().from("rtsp://101.200.49.0:8554/00000047071310001227/0")
+        new ConvertVideoPakcet().from("rtsp://192.168.1.130:8554/00000012081130000002/0")
                 .to("rtmp://192.168.1.50/live/00000047071310001227")
                 .go();
     }

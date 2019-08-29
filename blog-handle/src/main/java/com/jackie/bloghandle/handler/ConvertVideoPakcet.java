@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static org.bytedeco.javacpp.avcodec.AV_CODEC_ID_RA_144;
 import static org.bytedeco.javacpp.avcodec.av_free_packet;
 
 /**
@@ -42,15 +43,13 @@ public class ConvertVideoPakcet {
      * @return
      */
     public ConvertVideoPakcet inputRtspPath(String inputRtspPath) {
-        grabber = new FFmpegFrameGrabber(inputRtspPath);//拉取rtsp流
-        //封装ffmpeg需要额外添加的命令
-
-//        grabber.setOption("bsf:a", "aac_adtstoasc");
-        if (inputRtspPath.indexOf("rtsp") >= 0) grabber.setOption("rtsp_transport", "tcp");
         try {
+             grabber = new FFmpegFrameGrabber(inputRtspPath);//拉取rtsp流
+            //封装ffmpeg需要额外添加的命令
+//            grabber.setPixelFormat(AV_CODEC_ID_RA_144);//AV_PIX_FMT_RGBA
+            // grabber.setOption("bsf:a", "aac_adtstoasc");
+            if (inputRtspPath.indexOf("rtsp") >= 0) grabber.setOption("rtsp_transport", "tcp");
             //添加时间戳
-            grabber.setAudioTimestamp(System.currentTimeMillis());
-            grabber.setVideoTimestamp(System.currentTimeMillis());
             grabber.setTimestamp(System.currentTimeMillis());
             //开始执行ffmpeg命令，之后就可以获取视频和音频信息
             grabber.start();
@@ -89,8 +88,8 @@ public class ConvertVideoPakcet {
     public ConvertVideoPakcet rtmpOutPath(String rtmpPath) {
         record = new FFmpegFrameRecorder(rtmpPath, width, height);
         record.setOption("crf", "25");
-        record.setAudioOption("bsf:a", "aac_adtstoasc");
-//        record.setOption("bsf:a", "aac_adtstoasc");
+//        record.setAudioOption("bsf:a", "aac_adtstoasc");
+        record.setOption("bsf:a", "aac_adtstoasc");
         //设置视频参数
         record.setGopSize(4);
         record.setFrameRate(framerate);   //pam_alaw   acc
@@ -102,10 +101,10 @@ public class ConvertVideoPakcet {
         音频采样率 ：8000
         音频编码方式 ：65543
         音频帧率 ：12.5--->25*/
-        record.setAudioCodec(audioCodec);
-        record.setAudioBitrate(audioBitrate);
-        record.setAudioChannels(audioChannels);
-        record.setFrameRate(audioFramerate);
+//        record.setAudioCodec(audioCodec);
+//        record.setAudioBitrate(audioBitrate);
+//        record.setAudioChannels(audioChannels);
+//        record.setFrameRate(audioFramerate);
         avformat.AVFormatContext avFc = null;
         if (rtmpPath.indexOf("rtmp") >= 0 || rtmpPath.indexOf("flv") >= 0) {
             record.setFormat("flv");
