@@ -23,7 +23,8 @@ public class IndexController {
     public String index(HttpServletRequest request) {
         log.info("执行index方法");
         log.info(" comming  success!!!!!!");
-        int res=indexService.addViews(request);
+//        int res=indexService.addViews(request);
+        int res=1;
         if (res>0){
             return "/index";
         }
