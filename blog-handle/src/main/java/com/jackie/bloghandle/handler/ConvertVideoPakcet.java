@@ -46,8 +46,6 @@ public class ConvertVideoPakcet {
         try {
              grabber = new FFmpegFrameGrabber(inputRtspPath);//拉取rtsp流
             //封装ffmpeg需要额外添加的命令
-//            grabber.setPixelFormat(AV_CODEC_ID_RA_144);//AV_PIX_FMT_RGBA
-            // grabber.setOption("bsf:a", "aac_adtstoasc");
             if (inputRtspPath.indexOf("rtsp") >= 0) grabber.setOption("rtsp_transport", "tcp");
             //添加时间戳
             grabber.setTimestamp(System.currentTimeMillis());
@@ -88,7 +86,6 @@ public class ConvertVideoPakcet {
     public ConvertVideoPakcet rtmpOutPath(String rtmpPath) {
         record = new FFmpegFrameRecorder(rtmpPath, width, height);
         record.setOption("crf", "25");
-//        record.setAudioOption("bsf:a", "aac_adtstoasc");
         record.setOption("bsf:a", "aac_adtstoasc");
         //设置视频参数
         record.setGopSize(4);
@@ -101,10 +98,6 @@ public class ConvertVideoPakcet {
         音频采样率 ：8000
         音频编码方式 ：65543
         音频帧率 ：12.5--->25*/
-//        record.setAudioCodec(audioCodec);
-//        record.setAudioBitrate(audioBitrate);
-//        record.setAudioChannels(audioChannels);
-//        record.setFrameRate(audioFramerate);
         avformat.AVFormatContext avFc = null;
         if (rtmpPath.indexOf("rtmp") >= 0 || rtmpPath.indexOf("flv") >= 0) {
             record.setFormat("flv");
@@ -133,7 +126,6 @@ public class ConvertVideoPakcet {
             try {
                 //没有解码的音视频帧
                 pkt = grabber.grabPacket();
-//                System.err.println(pkt.toString());
                 if (pkt == null || pkt.size() <= 0 || pkt.data() == null) {
                     //空包记录次数跳过
                     no_frame_index++;

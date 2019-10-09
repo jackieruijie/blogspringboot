@@ -20,7 +20,7 @@ public class BlogActivitiApplicationTests {
     public void createActivitiTable(){
         ProcessEngineConfiguration config=ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
         config.setJdbcDriver("com.mysql.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mysql://192.168.1.75:3306/blogp?useUnicode=true&characterEncoding=utf8");
+        config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/blogp?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC");
         config.setJdbcUsername("root");
         config.setJdbcPassword("admin");
 

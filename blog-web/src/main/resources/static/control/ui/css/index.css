@@ -13,7 +13,7 @@
 }
 
 a{
-     text-decoration:none;
+    text-decoration:none;
     color: #0f0f0f;
  }
 
@@ -21,11 +21,6 @@ a:hover,a:focus,a:active{
     outline: none;
     color:#333;
     text-decoration:none; /*CSS下划线效果：无下划线*/
-}
-a:active {
-    color:#333;
-    text-decoration:none; /*CSS下划线效果：无下划线*/
-    border-bottom: 1px #0099CC dotted /*CSS加一个只有下边的框 边框为虚线*/
 }
 .a-class1{
     font-size: 20px;

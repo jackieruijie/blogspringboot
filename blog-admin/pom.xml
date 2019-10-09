@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jackie</groupId>
     <artifactId>blog-admin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1.01</version>
     <name>blog-admin</name>
     <description>blog-admin</description>
 

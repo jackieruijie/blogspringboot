@@ -93,8 +93,74 @@
 
 
 <!--添加登录弹框-->
-
 <script type="text/ng-template" id="loginUI.html">
+    <div>
+        <div>
+            <div class="modal-header">
+                <p class=" text-center modal_title"  ng-show="LoginShow" style="font-size: 30px">登录</p></div>
+
+                <p class=" text-center modal_title"  ng-show="forgetShow" style="font-size: 30px">忘记密码</p></div>
+        </div>
+        <div class="modal-body container-fluid ">
+
+            <div id="loginInput"  ng-show="LoginShow">
+                <div class="col-md-12">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+
+                        <form class="form-signin ">
+                            <!--<p class="h3 mb-3 font-weight-normal">Please sign in</p>-->
+                            <label for="inputUsername" class="sr-only">Username</label>
+                            <input type="text" id="inputUsername" class="form-control" ng-model="username" placeholder="请输入用户名" required="" autofocus=""><br/>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" ng-model="password" placeholder="请输入密码" required="">
+                            <div class="checkbox mb-3">
+                                <spqn ><a class="pull-right" href="#" ng-click="forgetPass()" >忘记密码？</a></spqn><br/>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" ng-click="blogLogin()" type="submit">Sign in</button>
+                            <br/>
+                        </form>
+
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+            </div>
+
+            <div class="col-md-12" ng-show="forgetShow">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+
+                    <form class="form-signin">
+                        <h1 class="h3 mb-3 font-weight-normal">forget password</h1>
+                        <label for="inputUsername" class="sr-only">Username</label>
+                        <input type="text" ng-model="username" class="form-control" placeholder="Username" required="" autofocus=""><br/>
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input type="text"  ng-model="email" class="form-control" placeholder="email" required=""><br/>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password"  ng-model="password" class="form-control" placeholder="Password" required="">
+                        <label for="inputRePassword" class="sr-only">RePassword</label>
+                        <input type="password" ng-model="repassword" class="form-control" placeholder="RePassword" required="">
+
+                        <button class="btn btn-lg btn-primary btn-block" ng-click="blogRegister()" type="submit">Next</button>
+
+                    </form>
+
+                </div>
+                <div class="col-lg-4"> </div>
+            </div>
+
+        </div>
+        <!--尾部信息-->
+        <div class="modal-footer">
+            <button class="btn btn-primary btn-o" ng-click="cancel()">取消</button>
+            </button>
+        </div>
+    </div>
+
+</script>
+
+<!--添加注册弹框-->
+<script type="text/ng-template" id="registerUI.html">
     <div>
         <div>
             <div class="modal-header">
@@ -106,17 +172,28 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
 
-                    <form class="form-signin ">
-                        <!--<p class="h3 mb-3 font-weight-normal">Please sign in</p>-->
+                    <form class="form-signin">
+                        <!--    <img class="mb-4" src="./Signin Template · Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72">-->
+                        <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
                         <label for="inputUsername" class="sr-only">Username</label>
-                        <input type="text" id="inputUsername" class="form-control" ng-model="username" placeholder="请输入用户名" required="" autofocus=""><br/>
+                        <input type="text" id="username"ng-model="username" class="form-control" placeholder="Username" required="" autofocus=""><br/>
                         <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" ng-model="password" placeholder="请输入密码" required="">
-                        <div class="checkbox mb-3">
-                            <spqn ><a class="pull-right" href="{{loginUrl+'forgetPass'}}">忘记密码？</a></spqn><br/>
-                        </div>
-                        <button class="btn btn-lg btn-primary btn-block" ng-click="blogLogin()" type="submit">Sign in</button>
-                        <br/>
+                        <input type="password" id="password" ng-model="password" class="form-control" placeholder="Password" required=""><br/>
+                        <label for="inputRePassword" class="sr-only">RePassword</label>
+                        <input type="password" id="inputRePassword" ng-model="repassword" class="form-control" placeholder="RePassword" required=""><br/>
+                        <label for="inputRealname" class="sr-only">RealName</label>
+                        <input type="text" id="inputRealname" ng-model="realname" class="form-control" placeholder="RealName" required=""><br/>
+
+                        <label for="inputMobile" class="sr-only">mobile</label>
+                        <input type="text" id="inputMobile" ng-model="mobile" class="form-control" placeholder="mobile" required=""><br/>
+
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input type="text" id="inputEmail" ng-model="email" class="form-control" placeholder="email" required=""><br/>
+
+
+
+                        <button class="btn btn-lg btn-primary btn-block" ng-click="blogRegister()" type="submit">Sign in</button>
+
                     </form>
 
                 </div>
@@ -126,7 +203,7 @@
         </div>
         <!--尾部信息-->
         <div class="modal-footer">
-            <button class="btn btn-primary btn-o" ng-click="cancel()">关闭</button>
+            <button class="btn btn-primary btn-o" ng-click="cancel()">取消</button>
             </button>
         </div>
     </div>

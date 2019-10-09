@@ -1,5 +1,6 @@
 package com.jackie.blogamqp;
 
+import com.jackie.blogamqp.model.Book;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -29,6 +30,25 @@ public class BlogAmqpApplicationTests {
         rabbitTemplate.convertAndSend("adminjackie.direct","adminjackie.news",map);
     }
 
+    /**
+     * 广播
+     * json数据传输测试
+     */
+    @Test
+    public void converterByJson(){
+        rabbitTemplate.convertAndSend("adminjackie.fanout","",new Book("基督山伯爵",50.00,"大仲马"));
+    }
+
+
+    /**
+     *
+     * json数据传输测试
+     */
+    @Test
+    public void converterJson(){
+        rabbitTemplate.convertAndSend("adminjackie.direct",
+                "adminjackie.emps",new Book("威尼斯商人",25.00,"莎士比亚"));
+    }
 
     @Test
     public void receive(){
@@ -36,4 +56,5 @@ public class BlogAmqpApplicationTests {
         System.out.println(o.getClass());
         System.out.println(o);
     }
+
 }
