@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>blog-elasticS</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>blog-elasticS</artifactId>
     <version>1.0.1.923</version>
     <name>demo</name>
     <description>blog-elasticS</description>
