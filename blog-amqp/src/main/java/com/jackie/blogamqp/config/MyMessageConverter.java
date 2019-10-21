@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyMessageConverter {
 
     @Bean
-    public MessageConverter messageConverter(){
+    public MessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 }

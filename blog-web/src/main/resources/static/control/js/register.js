@@ -68,7 +68,7 @@ app.controller('registerController', function ($scope, $location, $interval, $ht
         //建立HTTP请求
         var request = {
             method: 'POST',
-            url:  asdUrl + "asd/register",//请求的地址
+            url: asdUrl + "asd/register",//请求的地址
             params: {
                 object: $scope.userRegister //message 必须是a=b&c=d的格式
             }

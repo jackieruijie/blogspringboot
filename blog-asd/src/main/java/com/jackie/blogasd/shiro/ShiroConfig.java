@@ -25,8 +25,12 @@ import javax.servlet.Filter;
  * @description: 配置权限信息
  * @author: jackie
  * @create: 2019-06-18 14:38
- * @VERSION:v1.0
- **//*
+ * @VERSION:v1.0 凭证匹配器
+ * @return 自定义Realm
+ * @return WEB安全管理器
+ * @return 设置过滤规则
+ * @return
+ *//*
 
 
 @Configuration
@@ -36,10 +40,10 @@ public class ShiroConfig {
 
     */
 /**
-     * 凭证匹配器
-     *
-     * @return
-     *//*
+ * 凭证匹配器
+ *
+ * @return
+ *//*
 
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
@@ -53,10 +57,10 @@ public class ShiroConfig {
 
     */
 /**
-     * 自定义Realm
-     *
-     * @return
-     *//*
+ * 自定义Realm
+ *
+ * @return
+ *//*
 
     @Bean
     public ShiroRealm shiroRealm() {
@@ -68,10 +72,10 @@ public class ShiroConfig {
 
     */
 /**
-     * WEB安全管理器
-     *
-     * @return
-     *//*
+ * WEB安全管理器
+ *
+ * @return
+ *//*
 
     @Bean
     public DefaultWebSecurityManager securityManager() {
@@ -83,10 +87,10 @@ public class ShiroConfig {
 
     */
 /**
-     * 设置过滤规则
-     *
-     * @return
-     *//*
+ * 设置过滤规则
+ *
+ * @return
+ *//*
 
     @Bean
     public ShiroFilterFactoryBean filterFactoryBean(SecurityManager securityManager) {

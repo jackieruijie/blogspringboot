@@ -13,7 +13,7 @@ public class Book {
     }
 
     public Book(String bookName, double price, String author) {
-        this.id = UUID.randomUUID().toString().replaceAll("-","");
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
         this.bookName = bookName;
         this.price = price;
         this.author = author;

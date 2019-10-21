@@ -4,6 +4,7 @@ public class ResponseUtil {
 
     /**
      * 操作成功
+     *
      * @param data
      * @return
      */
@@ -16,8 +17,10 @@ public class ResponseUtil {
         res.setData(data);
         return res;
     }
+
     /**
      * 操作失败
+     *
      * @param data
      * @return
      */
@@ -33,6 +36,7 @@ public class ResponseUtil {
 
     /**
      * 操作错误异常
+     *
      * @param code
      * @param msg
      * @param data
@@ -45,8 +49,10 @@ public class ResponseUtil {
         res.setData(data);
         return res;
     }
+
     /**
      * 系统级异常
+     *
      * @param code
      * @param msg
      * @param data

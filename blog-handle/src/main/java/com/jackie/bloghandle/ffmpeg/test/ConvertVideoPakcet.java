@@ -66,8 +66,8 @@ public class ConvertVideoPakcet {
         // 想要录制音频，这三个参数必须有：audioChannels > 0 && audioBitrate > 0 && sampleRate > 0
         audioChannels = grabber.getAudioChannels();
         audioBitrate = grabber.getAudioBitrate();
-        audioCodec=grabber.getAudioCodec();
-        audioCodecName=grabber.getAudioCodecName();
+        audioCodec = grabber.getAudioCodec();
+        audioCodecName = grabber.getAudioCodecName();
         sampleRate = grabber.getSampleRate();
         if (audioBitrate < 1) {
             audioBitrate = 128 * 1000;// 默认音频比特率
@@ -77,16 +77,16 @@ public class ConvertVideoPakcet {
 
     /**
      * 选择输出
-     * @param out
      *
-     * @author eguid
+     * @param out
      * @throws IOException
+     * @author eguid
      */
     public ConvertVideoPakcet to(String out) throws IOException {
         // 录制/推流器
         record = new FFmpegFrameRecorder(out, width, height);
         record.setVideoOption("crf", "25");
-        record.setAudioOption("acodec","copy");
+        record.setAudioOption("acodec", "copy");
         record.setGopSize(2);
         //设置视频参数
         record.setFrameRate(framerate);
@@ -109,9 +109,9 @@ public class ConvertVideoPakcet {
 
     /**
      * 转封装
+     *
+     * @throws IOException     
      * @author eguid
-     *  @throws IOException
-     *     
      */
     public ConvertVideoPakcet go() throws IOException {
         long err_index = 0;//采集或推流导致的错误次数

@@ -90,11 +90,11 @@ public class SendMail {
             // 2. From: 发件人
             message.setFrom(new InternetAddress(myEmailAccount, "青宇软件工作室", "UTF-8"));
             // 3. To: 收件人（可以增加多个收件人、抄送、密送）
-            message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(userEmail, userEmail.toString()+"用户", "UTF-8"));
+            message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(userEmail, userEmail.toString() + "用户", "UTF-8"));
 
             // 4. Subject: 邮件主题
             message.setSubject("验证邮件", "UTF-8");
-            Object o="欢迎您成为个人博客的一员，您的验证码是："+ RandomUtil.getCode() +",验证码两分钟内有效；转发给他人可能导致您的账号被盗，请勿泄露（系统邮件，请勿回复）。";
+            Object o = "欢迎您成为个人博客的一员，您的验证码是：" + RandomUtil.getCode() + ",验证码两分钟内有效；转发给他人可能导致您的账号被盗，请勿泄露（系统邮件，请勿回复）。";
             // 5. Content: 邮件正文（可以使用html标签）
             message.setContent(o, "text/html;charset=UTF-8");
             // 6. 设置发件时间

@@ -1,0 +1,11 @@
+server:
+  port: 8105
+
+spring:
+  application:
+    name: blog-es
+   #通过springData来操作es
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes:  192.168.1.70:9300

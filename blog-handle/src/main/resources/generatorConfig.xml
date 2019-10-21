@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="D:\MAVEN\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+    <classPathEntry location="D:\MAVEN\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>
 
     <context id="mysql" targetRuntime="MyBatis3">
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -13,26 +13,29 @@
                         password="admin">
         </jdbcConnection>
 
-        <javaTypeResolver >
-            <property name="forceBigDecimals" value="false" />
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.jackie.bloghandle.model" targetProject="src/main/java">
-            <property name="enableSubPackages" value="true" />
-            <property name="trimStrings" value="true" />
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
-            <property name="enableSubPackages" value="true" />
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jackie.bloghandle.mapper"  targetProject="src/main/java">
-            <property name="enableSubPackages" value="true" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jackie.bloghandle.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="article" domainObjectName="Article" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="article" domainObjectName="Article" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false"
                enableUpdateByExample="false"/>
-        <table tableName="comment" domainObjectName="Comment" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="comment" domainObjectName="Comment" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false"
                enableUpdateByExample="false"/>
 
 

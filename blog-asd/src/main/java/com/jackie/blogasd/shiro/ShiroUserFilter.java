@@ -17,8 +17,13 @@ public class ShiroUserFilter extends UserFilter {
 
     */
 /**
-     * 在访问过来的时候检测是否为OPTIONS请求，如果是就直接返回true
-     *//*
+ * 在访问过来的时候检测是否为OPTIONS请求，如果是就直接返回true
+ * <p>
+ * 该方法会在验证失败后调用，这里由于是前后端分离，后台不控制页面跳转
+ * 因此重写改成传输JSON数据
+ * <p>
+ * 为response设置header，实现跨域
+ *//*
 
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
@@ -33,9 +38,9 @@ public class ShiroUserFilter extends UserFilter {
 
     */
 /**
-     * 该方法会在验证失败后调用，这里由于是前后端分离，后台不控制页面跳转
-     * 因此重写改成传输JSON数据
-     *//*
+ * 该方法会在验证失败后调用，这里由于是前后端分离，后台不控制页面跳转
+ * 因此重写改成传输JSON数据
+ *//*
 
     @Override
     protected void saveRequestAndRedirectToLogin(ServletRequest request, ServletResponse response) throws IOException {
@@ -49,8 +54,8 @@ public class ShiroUserFilter extends UserFilter {
 
     */
 /**
-     * 为response设置header，实现跨域
-     *//*
+ * 为response设置header，实现跨域
+ *//*
 
     private void setHeader(HttpServletRequest request,HttpServletResponse response){
         //跨域的header设置

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class IndexController {
-    private final static Logger log= LoggerFactory.getLogger(IndexController.class);
+    private final static Logger log = LoggerFactory.getLogger(IndexController.class);
 
 
     @Autowired
@@ -24,8 +24,8 @@ public class IndexController {
         log.info("执行index方法");
         log.info(" comming  success!!!!!!");
 //        int res=indexService.addViews(request);
-        int res=1;
-        if (res>0){
+        int res = 1;
+        if (res > 0) {
             return "/index";
         }
         return null;
@@ -33,6 +33,7 @@ public class IndexController {
 
     /**
      * 登陆页面跳转
+     *
      * @return
      */
 
@@ -44,6 +45,7 @@ public class IndexController {
 
     /**
      * 注册页面跳转
+     *
      * @return
      */
     @RequestMapping("register")
@@ -55,6 +57,7 @@ public class IndexController {
 
     /**
      * 忘记密码
+     *
      * @return
      */
     @RequestMapping("forgetPass")
@@ -63,9 +66,6 @@ public class IndexController {
         log.info("执行forgetPass方法------------------");
         return "/views/forgetpass";
     }
-
-
-
 
 
 }

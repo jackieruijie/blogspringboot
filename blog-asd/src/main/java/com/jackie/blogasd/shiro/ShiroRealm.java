@@ -26,10 +26,14 @@ public class ShiroRealm extends AuthorizingRealm {
 
     */
 /**
-     * 授权
-     * @param principalCollection
-     * @return
-     *//*
+ * 授权
+ *
+ * @param principalCollection
+ * @return 密码验证
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ *//*
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -53,11 +57,11 @@ public class ShiroRealm extends AuthorizingRealm {
 
     */
 /**
-     * 密码验证
-     * @param authenticationToken
-     * @return
-     * @throws AuthenticationException
-     *//*
+ * 密码验证
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ *//*
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {

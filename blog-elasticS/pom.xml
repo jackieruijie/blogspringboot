@@ -11,7 +11,7 @@
     <groupId>blog-elasticS</groupId>
     <artifactId>blog-elasticS</artifactId>
     <version>1.0.1.923</version>
-    <name>demo</name>
+    <name>blog-elasticS</name>
     <description>blog-elasticS</description>
 
     <properties>
@@ -43,6 +43,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- jest客户端-->
+        <dependency>
+            <groupId>io.searchbox</groupId>
+            <artifactId>jest</artifactId>
+            <version>6.3.1</version>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,17 @@
+server:
+  port: 8010
+dubbo:
+  application:
+    name: tickerProvider
+  registry:
+    address: zookeeper://192.168.1.70:2181
+  scan:
+    base-packages: com.jackie.blogticketprovider.service
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.1.70:3306/blogp?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: admin
+    session:
+      store-type: none

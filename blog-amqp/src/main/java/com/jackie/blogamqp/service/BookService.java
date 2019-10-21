@@ -16,10 +16,10 @@ public class BookService {
 
 
     @RabbitListener(queues = "adminjackie.emps")
-    public void getMessage(Message message){
-        System.out.println("toString----------->"+message.toString());
-        System.out.println("body----------->"+message.getBody());
-        System.out.println("properties--------->"+message.getMessageProperties());
+    public void getMessage(Message message) {
+        System.out.println("toString----------->" + message.toString());
+        System.out.println("body----------->" + message.getBody());
+        System.out.println("properties--------->" + message.getMessageProperties());
     }
 
 

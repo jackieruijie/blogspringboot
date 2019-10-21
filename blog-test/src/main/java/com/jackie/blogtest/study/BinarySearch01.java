@@ -6,10 +6,9 @@ package com.jackie.blogtest.study;
 public class BinarySearch01 {
 
 
-
 }
 
- class TrieNode {
+class TrieNode {
     public TrieNode[] children = new TrieNode[26];
     public String item = "";
 }

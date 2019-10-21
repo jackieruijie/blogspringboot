@@ -54,7 +54,7 @@ public class LoginController {
         Map<String, String> userMap = (Map<String, String>) JSON.parse(object);
         String username = userMap.get("username").trim();
         String password = userMap.get("password").trim();
-        String result=userService.userLogin(username,password);
+        String result = userService.userLogin(username, password);
         return ResponseUtil.ok(result);
     }
 

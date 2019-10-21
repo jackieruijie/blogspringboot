@@ -44,7 +44,7 @@ public class ConvertVideoPakcet {
      */
     public ConvertVideoPakcet inputRtspPath(String inputRtspPath) {
         try {
-             grabber = new FFmpegFrameGrabber(inputRtspPath);//拉取rtsp流
+            grabber = new FFmpegFrameGrabber(inputRtspPath);//拉取rtsp流
             //封装ffmpeg需要额外添加的命令
             if (inputRtspPath.indexOf("rtsp") >= 0) grabber.setOption("rtsp_transport", "tcp");
             //添加时间戳

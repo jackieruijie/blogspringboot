@@ -22,18 +22,19 @@ public class ExecuteCodecs {
     private static final Logger logger = LoggerFactory.getLogger(ExecuteCodecs.class);
 
     //ffmpegPath的路径
-   private static final  String   ffmpegPath = "D:\\develop\\ffmpeg\\bin\\ffmpeg.exe";
+    private static final String ffmpegPath = "D:\\develop\\ffmpeg\\bin\\ffmpeg.exe";
 
-   private static final  String   frmpPahtFormat = "rtmp://127.0.0.1/live/";
+    private static final String frmpPahtFormat = "rtmp://127.0.0.1/live/";
 
     /**
      * 视频转码 (PC端MP4)
-     * @param rtspPath    用于转码的rtsp路劲
+     *
+     * @param rtspPath 用于转码的rtsp路劲
      * @return rtmpPath   转码后产生的rtmp播放路劲
      * @throws Exception
      */
-    public static String exchangeRtsp2Rtmp( String rtspPath){
-        String rtmpPath=frmpPahtFormat+"00000012081310000001";
+    public static String exchangeRtsp2Rtmp(String rtspPath) {
+        String rtmpPath = frmpPahtFormat + "00000012081310000001";
         // 创建List集合来保存转换视频文件为flv格式的命令
         List<String> convert = new ArrayList<String>();
         convert.add(ffmpegPath); // 添加转换工具路径

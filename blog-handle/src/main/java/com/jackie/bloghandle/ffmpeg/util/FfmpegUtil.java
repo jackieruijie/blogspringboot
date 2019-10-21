@@ -15,18 +15,19 @@ public class FfmpegUtil {
 
     /**
      * 对rtsp直播流进行转码，
-     * @param rtspUrl rtsp源文件路径
-     * @param rtmpAppName  rtmp应用名称
+     *
+     * @param rtspUrl     rtsp源文件路径
+     * @param rtmpAppName rtmp应用名称
      */
-    public static String rtmp2Rtmp(String rtspUrl,String rtmpAppName){
-        StringBuffer nginxServer=new StringBuffer("rtmp://"+ IpUtils.getLocalIp()+"/live/");//获取本机nginx-rtmp服务地址
-        if (!"".equals(rtmpAppName)){
+    public static String rtmp2Rtmp(String rtspUrl, String rtmpAppName) {
+        StringBuffer nginxServer = new StringBuffer("rtmp://" + IpUtils.getLocalIp() + "/live/");//获取本机nginx-rtmp服务地址
+        if (!"".equals(rtmpAppName)) {
             nginxServer.append(rtmpAppName);//拼接rtmp文件路劲
-        }else {
+        } else {
             return "rtmp应用名称为空，无法转码";
         }
         Process process;
-        StringBuffer str=new StringBuffer(500);
+        StringBuffer str = new StringBuffer(500);
         //str.append("/usr/local/ffmpeg/bin/./ffmpeg ");//linux
         str.append("D:/develop/ffmpeg/bin/ffmpeg.exe ");//windows
         str.append("-re ");
@@ -40,8 +41,8 @@ public class FfmpegUtil {
         str.append("  ");
         str.append(nginxServer.toString());
         try {
-            System.out.println("change rtsp to rtmp codde---->"+str.toString());
-            process=Runtime.getRuntime().exec(str.toString());//执行转码命令
+            System.out.println("change rtsp to rtmp codde---->" + str.toString());
+            process = Runtime.getRuntime().exec(str.toString());//执行转码命令
             System.out.println("wav change to wav success！！！！");
 //            process.waitFor();
         } catch (IOException e) {

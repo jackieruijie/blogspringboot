@@ -12,16 +12,16 @@ public class IpUtils {
     public static boolean isWindowOS() {
         boolean isWindowOS = false;
         String osName = System.getProperty("os.name");
-        if(osName.toLowerCase().indexOf("windows") > -1) {
+        if (osName.toLowerCase().indexOf("windows") > -1) {
             isWindowOS = true;
         }
         return isWindowOS;
     }
 
-    public static String getLocalIp(){
-        if (isWindowOS()){
-          return   getWindowsRealIP();
-        }else {
+    public static String getLocalIp() {
+        if (isWindowOS()) {
+            return getWindowsRealIP();
+        } else {
             return getLinuxLocalIp();
         }
     }
@@ -43,18 +43,18 @@ public class IpUtils {
                 ip = (InetAddress) addresses.nextElement();
                 if (ip != null && ip instanceof Inet4Address) {
                     if ("enp3s0".equals(netInterface.getName())) {
-                        System.out.println("--------------------------- " );
-                        System.out.println("--------------------------- " );
+                        System.out.println("--------------------------- ");
+                        System.out.println("--------------------------- ");
                         System.out.println("本机的IP = " + ip.getHostAddress());
-                        System.out.println("--------------------------- " );
-                        System.out.println("--------------------------- " );
+                        System.out.println("--------------------------- ");
+                        System.out.println("--------------------------- ");
                         return ip.getHostAddress();
                     } else if ("eth0".equals(netInterface.getName())) {
-                        System.out.println("--------------------------- " );
-                        System.out.println("--------------------------- " );
+                        System.out.println("--------------------------- ");
+                        System.out.println("--------------------------- ");
                         System.out.println("本机的IP = " + ip.getHostAddress());
-                        System.out.println("--------------------------- " );
-                        System.out.println("--------------------------- " );
+                        System.out.println("--------------------------- ");
+                        System.out.println("--------------------------- ");
                         return ip.getHostAddress();
                     }
                 }
@@ -68,6 +68,7 @@ public class IpUtils {
      * 获取windows操作系统的IP地址
      * 获取本地真正的IP地址，即获得有线或者无线WiFi地址。
      * 过滤虚拟机、蓝牙等地址
+     *
      * @return
      */
     public static String getWindowsRealIP() {
@@ -110,10 +111,6 @@ public class IpUtils {
         return null;
 
     }
-
-
-
-
 
 
 }

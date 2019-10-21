@@ -1,6 +1,6 @@
 var app = angular.module('blogIndex', ['ui.bootstrap']);
 // var app = angular.module('blogIndex');
-app.controller('blogIndexController', function ($scope, $location, $interval, $http,$modal) {
+app.controller('blogIndexController', function ($scope, $location, $interval, $http, $modal) {
     // $scope.login;
     $scope.appUrl = $location.absUrl();
     $scope.currTime;
@@ -18,24 +18,24 @@ app.controller('blogIndexController', function ($scope, $location, $interval, $h
 
     //控制登陆和忘记密码模块是否显示
 
-    
+
     //实现登陆模块的弹出
-    $scope.loginClick=function () {
+    $scope.loginClick = function () {
         var modalInstance = $modal.open({
             templateUrl: "loginUI.html",
             size: 'md',
             backdrop: 'static',//有背景却不能关闭弹窗
             keyboard: true,//不允许Esc关闭弹窗
             controller: function ($scope, $modalInstance) {
-                $scope.LoginShow =true ;
-                $scope.forgetShow=false;
+                $scope.LoginShow = true;
+                $scope.forgetShow = false;
 
-                $scope.loginObject=new Object();//登陆对象存储
+                $scope.loginObject = new Object();//登陆对象存储
 
                 /**
                  * 登陆实现
                  */
-                $scope.blogLogin=function () {
+                $scope.blogLogin = function () {
                     //获取属性封装成对象
                     if ($scope.username != null && $scope.username != "" && $scope.username != undefined) {
                         $scope.loginObject.username = $scope.username;//username
@@ -54,8 +54,8 @@ app.controller('blogIndexController', function ($scope, $location, $interval, $h
                     //建立HTTP请求
                     var request = {
                         method: 'POST',
-                        url:  asdUrl + "asd/login",//请求的地址
-                        params:{
+                        url: asdUrl + "asd/login",//请求的地址
+                        params: {
                             object: $scope.loginObject
                         }
 
@@ -63,19 +63,19 @@ app.controller('blogIndexController', function ($scope, $location, $interval, $h
 
                     //提交表单结果
                     $http(request).success(function (response) {
-                        if (response.code==200 && response.data==='登陆成功'){
+                        if (response.code == 200 && response.data === '登陆成功') {
                             alert("登陆成功！")
-                        }else {
-                            alert("登陆失败！"+response.data)
+                        } else {
+                            alert("登陆失败！" + response.data)
                         }
 
                     });
                 }
                 //忘记密码
-                $scope.forgetPass=function(){
+                $scope.forgetPass = function () {
                     debugger
-                    LoginShow =false;
-                    forgetShow=true;
+                    LoginShow = false;
+                    forgetShow = true;
                 }
 
 
@@ -89,19 +89,19 @@ app.controller('blogIndexController', function ($scope, $location, $interval, $h
     }
 
     //注册弹框
-    $scope.registerClick=function () {
+    $scope.registerClick = function () {
         var modalInstance = $modal.open({
             templateUrl: "registerUI.html",
             size: 'md',
             backdrop: 'static',//有背景却不能关闭弹窗
             keyboard: true,//不允许Esc关闭弹窗
             controller: function ($scope, $modalInstance) {
-                $scope.loginObject=new Object();//登陆对象存储
+                $scope.loginObject = new Object();//登陆对象存储
 
                 /**
                  * 登陆实现
                  */
-                $scope.blogLogin=function () {
+                $scope.blogLogin = function () {
                     //获取属性封装成对象
                     if ($scope.username != null && $scope.username != "" && $scope.username != undefined) {
                         $scope.loginObject.username = $scope.username;//username
@@ -120,8 +120,8 @@ app.controller('blogIndexController', function ($scope, $location, $interval, $h
                     //建立HTTP请求
                     var request = {
                         method: 'POST',
-                        url:  asdUrl + "asd/login",//请求的地址
-                        params:{
+                        url: asdUrl + "asd/login",//请求的地址
+                        params: {
                             object: $scope.loginObject
                         }
 
@@ -130,10 +130,10 @@ app.controller('blogIndexController', function ($scope, $location, $interval, $h
                     //提交表单结果
                     $http(request).success(function (response) {
                         debugger
-                        if (response.code==200 && response.data==='登陆成功'){
+                        if (response.code == 200 && response.data === '登陆成功') {
                             alert("登陆成功！")
-                        }else {
-                            alert("登陆失败！"+response.data)
+                        } else {
+                            alert("登陆失败！" + response.data)
                         }
 
                     });

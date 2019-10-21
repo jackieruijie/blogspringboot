@@ -5,7 +5,7 @@ import com.jackie.bloghandle.model.ArticleWithBLOBs;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArticleMapper  {
+public interface ArticleMapper {
     int deleteByPrimaryKey(String id);
 
     int insert(ArticleWithBLOBs record);

@@ -250,7 +250,8 @@
         where tu_id = #{tuId,jdbcType=VARCHAR}
     </update>
 
-    <select id="getUserByUsername" parameterType="java.lang.String" resultType="com.jackie.blogasd.model.Tuser"  resultMap="BaseResultMap">
+    <select id="getUserByUsername" parameterType="java.lang.String" resultType="com.jackie.blogasd.model.Tuser"
+            resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from t_user where login_name=#{username}

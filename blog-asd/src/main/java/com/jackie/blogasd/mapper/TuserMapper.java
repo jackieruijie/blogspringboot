@@ -54,5 +54,5 @@ public interface TuserMapper {
      */
     int updateByPrimaryKey(Tuser record);
 
-    Tuser getUserByUsername(@Param("username")String username);
+    Tuser getUserByUsername(@Param("username") String username);
 }

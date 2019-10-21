@@ -25,20 +25,17 @@ public class FfmpegTest {
 
     }
 
-    public static void startTest(){
-        String rtspUrl="rtsp://192.168.1.130:8554/00000012081310000001/0";
-        String rtmpUrl= FfmpegService.rtsp2Rtmp(rtspUrl);
+    public static void startTest() {
+        String rtspUrl = "rtsp://192.168.1.130:8554/00000012081310000001/0";
+        String rtmpUrl = FfmpegService.rtsp2Rtmp(rtspUrl);
         System.out.println(rtmpUrl);
     }
 
-    public static void stopTest(){
-        String rtspUrl="rtsp://192.168.1.130:8554/00000012081310000001/0";
-         FfmpegService.stopTcoding(rtspUrl);
+    public static void stopTest() {
+        String rtspUrl = "rtsp://192.168.1.130:8554/00000012081310000001/0";
+        FfmpegService.stopTcoding(rtspUrl);
 
     }
-
-
-
 
 
 }

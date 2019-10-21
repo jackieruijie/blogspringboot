@@ -1,27 +1,28 @@
 
-.header-class{
+.header-class {
     background: #45b5aa;
 }
 
-.button-class{
+.button-class {
     font-size: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
-    border:none;
-    background: transparent ;
+    border: none;
+    background: transparent;
     color: #333333;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
     color: #0f0f0f;
- }
-
-a:hover,a:focus,a:active{
-    outline: none;
-    color:#333;
-    text-decoration:none; /*CSS下划线效果：无下划线*/
 }
-.a-class1{
+
+a:hover, a:focus, a:active {
+    outline: none;
+    color: #333;
+    text-decoration: none; /*CSS下划线效果：无下划线*/
+}
+
+.a-class1 {
     font-size: 20px;
 }

@@ -18,8 +18,7 @@ import java.util.Map;
  * @description: AddressUtils
  * @author: jackie
  * @create: 2019-06-18 17:33
- * @VERSION:v1.0
- * 根据IP地址获取详细的地域信息
+ * @VERSION:v1.0 根据IP地址获取详细的地域信息
  * 第一个方法是传入ip获取真实地址
  * 最后一个方法是获取访问者真实ip 即使通过Nginx多层代理也可以获取
  **/
@@ -29,28 +28,28 @@ public class AddressUtils {
 
     public static String getAddresses(String ip, String encodingString)
             throws UnsupportedEncodingException {
-        ip="ip=" + ip;
-        StringBuffer sb =null;
+        ip = "ip=" + ip;
+        StringBuffer sb = null;
         // 这里调用pconline的接口
         // 从http://ip.taobao.com/service/getIpInfo.php取得IP所在的省市区信息
         String urlStr = "http://ip.taobao.com/service/getIpInfo.php";
 
         String returnStr = getResult(urlStr, ip, encodingString);
 
-        Map<String,Object> map= (Map<String, Object>) JSON.parse(returnStr);
-        if (map==null){
+        Map<String, Object> map = (Map<String, Object>) JSON.parse(returnStr);
+        if (map == null) {
             return "获取地址失败！";
         }
-        if (map.get("code").equals(0)){
-            Map<String,Object> dataMap= (Map<String, Object>) JSON.toJSON(map.get("data"));
-            if (dataMap!=null){
-                if (("内网IP").equals(dataMap.get("isp"))){
+        if (map.get("code").equals(0)) {
+            Map<String, Object> dataMap = (Map<String, Object>) JSON.toJSON(map.get("data"));
+            if (dataMap != null) {
+                if (("内网IP").equals(dataMap.get("isp"))) {
                     return "内网IP";
                 }
-                String country=dataMap.get("country")==""?"":dataMap.get("country").toString();//获取国家
-                String city=dataMap.get("city")==""?"":dataMap.get("city").toString();//获取城市
-                String region=dataMap.get("region")==""?"":dataMap.get("region").toString();//获取地区
-                String isp=dataMap.get("isp")==""?"":dataMap.get("isp").toString();//h获取网络服务商
+                String country = dataMap.get("country") == "" ? "" : dataMap.get("country").toString();//获取国家
+                String city = dataMap.get("city") == "" ? "" : dataMap.get("city").toString();//获取城市
+                String region = dataMap.get("region") == "" ? "" : dataMap.get("region").toString();//获取地区
+                String isp = dataMap.get("isp") == "" ? "" : dataMap.get("isp").toString();//h获取网络服务商
 //                System.out.println(country + "=" + region + "=" + city + "=" +"=" + isp);
             }
         }
@@ -229,7 +228,6 @@ public class AddressUtils {
 
         return ipString;
     }
-
 
 
     public static String getIPAddress(HttpServletRequest request) {

@@ -18,7 +18,6 @@ public class BlogHandleApplication {
     }
 
 
-
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

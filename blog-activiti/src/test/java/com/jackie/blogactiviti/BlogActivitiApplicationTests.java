@@ -17,8 +17,8 @@ public class BlogActivitiApplicationTests {
     }
 
     @Test
-    public void createActivitiTable(){
-        ProcessEngineConfiguration config=ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
+    public void createActivitiTable() {
+        ProcessEngineConfiguration config = ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
         config.setJdbcDriver("com.mysql.jdbc.Driver");
         config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/blogp?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC");
         config.setJdbcUsername("root");
@@ -28,7 +28,7 @@ public class BlogActivitiApplicationTests {
         config.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
         //工作流核心对象 processEngine
         ProcessEngine processEngine = config.buildProcessEngine();
-        System.out.println("processEngine:"+processEngine);
+        System.out.println("processEngine:" + processEngine);
 
 
     }

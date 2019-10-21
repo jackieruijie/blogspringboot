@@ -1,22 +1,22 @@
 #spring
 spring:
-#  redis:
-##    host: 80.2.21.68
-##    port: 6379
-##    password:
-##    database: 1
-#    password:
-#      database: 0
-#      lettuce:
-#        pool:
-#          max-active: 8
-#          max-idle: 300
-#          min-idle: 20
-#          max-wait: -1
-#      timeout: 15000
-#      commandTimeout: 5000
-#    cluster:
-#      nodes: 80.2.21.71:7101,80.2.21.71:7102,80.2.21.72:7201,80.2.21.72:7202,80.2.21.73:7301,80.2.21.73:7302
+  #  redis:
+  ##    host: 80.2.21.68
+  ##    port: 6379
+  ##    password:
+  ##    database: 1
+  #    password:
+  #      database: 0
+  #      lettuce:
+  #        pool:
+  #          max-active: 8
+  #          max-idle: 300
+  #          min-idle: 20
+  #          max-wait: -1
+  #      timeout: 15000
+  #      commandTimeout: 5000
+  #    cluster:
+  #      nodes: 80.2.21.71:7101,80.2.21.71:7102,80.2.21.72:7201,80.2.21.72:7202,80.2.21.73:7301,80.2.21.73:7302
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://192.168.1.120:3306/blogp?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC

@@ -4,61 +4,60 @@ package com.jackie.bloghandle.ffmpeg.config;
  * 程序基础配置
  *
  * @author jackie
- * @since jdk1.8
  * @version 1.0
- * 
+ * @since jdk1.8
  */
 public class ProgramConfig {
-	
-	private String path;//默认命令行执行根路径
-	private boolean debug;//是否开启debug模式
-	private Integer size;//任务池大小
-	private String callback;//回调通知地址
-	private boolean keepalive;//是否开启保活
 
-	public String getPath() {
-		return path;
-	}
+    private String path;//默认命令行执行根路径
+    private boolean debug;//是否开启debug模式
+    private Integer size;//任务池大小
+    private String callback;//回调通知地址
+    private boolean keepalive;//是否开启保活
 
-	public void setPath(String path) {
-		this.path = path;
-	}
+    public String getPath() {
+        return path;
+    }
 
-	public boolean isDebug() {
-		return debug;
-	}
+    public void setPath(String path) {
+        this.path = path;
+    }
 
-	public void setDebug(boolean debug) {
-		this.debug = debug;
-	}
+    public boolean isDebug() {
+        return debug;
+    }
 
-	public Integer getSize() {
-		return size;
-	}
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
 
-	public void setSize(Integer size) {
-		this.size = size;
-	}
+    public Integer getSize() {
+        return size;
+    }
 
-	public String getCallback() {
-		return callback;
-	}
+    public void setSize(Integer size) {
+        this.size = size;
+    }
 
-	public void setCallback(String callback) {
-		this.callback = callback;
-	}
+    public String getCallback() {
+        return callback;
+    }
 
-	public boolean isKeepalive() {
-		return keepalive;
-	}
+    public void setCallback(String callback) {
+        this.callback = callback;
+    }
 
-	public void setKeepalive(boolean keepalive) {
-		this.keepalive = keepalive;
-	}
+    public boolean isKeepalive() {
+        return keepalive;
+    }
 
-	@Override
-	public String toString() {
-		return "ProgramConfig [path=" + path + ", debug=" + debug + ", size=" + size + ", callback=" + callback
-				+ ", keepalive=" + keepalive + "]";
-	}
+    public void setKeepalive(boolean keepalive) {
+        this.keepalive = keepalive;
+    }
+
+    @Override
+    public String toString() {
+        return "ProgramConfig [path=" + path + ", debug=" + debug + ", size=" + size + ", callback=" + callback
+                + ", keepalive=" + keepalive + "]";
+    }
 }

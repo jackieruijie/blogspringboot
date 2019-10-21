@@ -5,68 +5,69 @@ import com.jackie.bloghandle.ffmpeg.CommandManager;
 
 /**
  * 默认流式命令行构建器（非线程安全）
+ *
  * @author jackie
- * @since jdk1.8
  * @version 1.0
+ * @since jdk1.8
  */
-public class DefaultCommandBuidler implements CommandBuidler{
+public class DefaultCommandBuidler implements CommandBuidler {
 
-	StringBuilder buidler=null;
-	String command=null;
-	
-	public DefaultCommandBuidler() {
-		create();
-	}
-	
+    StringBuilder buidler = null;
+    String command = null;
 
-	public DefaultCommandBuidler(String rootpath) {
-		create(rootpath);
-	}
+    public DefaultCommandBuidler() {
+        create();
+    }
 
 
-	@Override
-	public CommandBuidler create(String rootpath) {
-		buidler=new StringBuilder(rootpath);
-		return this;
-	}
+    public DefaultCommandBuidler(String rootpath) {
+        create(rootpath);
+    }
 
-	@Override
-	public CommandBuidler create() {
-		return create(CommandManager.config.getPath());
-	}
 
-	@Override
-	public CommandBuidler add(String key, String val) {
-		return add(key).add(val);
-	}
+    @Override
+    public CommandBuidler create(String rootpath) {
+        buidler = new StringBuilder(rootpath);
+        return this;
+    }
 
-	@Override
-	public CommandBuidler add(String val) {
-		if(buidler!=null) {
-			buidler.append(val);
-			addBlankspace();
-		}
-		return this;
-	}
+    @Override
+    public CommandBuidler create() {
+        return create(CommandManager.config.getPath());
+    }
 
-	@Override
-	public CommandBuidler build() {
-		if(buidler!=null) {
-			command=buidler.toString();
-		}
-		return this;
-	}
-	
-	private void addBlankspace() {
-		buidler.append(" ");
-	}
+    @Override
+    public CommandBuidler add(String key, String val) {
+        return add(key).add(val);
+    }
 
-	@Override
-	public String get() {
-		if(command==null) {
-			build();
-		}
-		return command;
-	}
+    @Override
+    public CommandBuidler add(String val) {
+        if (buidler != null) {
+            buidler.append(val);
+            addBlankspace();
+        }
+        return this;
+    }
+
+    @Override
+    public CommandBuidler build() {
+        if (buidler != null) {
+            command = buidler.toString();
+        }
+        return this;
+    }
+
+    private void addBlankspace() {
+        buidler.append(" ");
+    }
+
+    @Override
+    public String get() {
+        if (command == null) {
+            build();
+        }
+        return command;
+    }
 
 }
